@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button'
 		<div class="flex flex-col items-center justify-center space-y-5">
 			<Input placeholder="Имя пользователя" class="w-4/5" />
 			<Input placeholder="Пароль" class="w-4/5" />
-			<Button class="w-1/3">Войти</Button>
+			<Button class="w-1/3">{{ $t('login') }}</Button>
 		</div>
 	</div>
 </template>
