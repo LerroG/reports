@@ -7,19 +7,30 @@ import {
 import { Button } from '@/components/ui/button'
 import { loadLocaleMessages } from '@/lib/i18n'
 import { useI18n } from 'vue-i18n'
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 // Функция для смены языка
 const { locale } = useI18n()
 
+const isOpen = ref(false)
+
+type LanguageType = 'ru' | 'uz'
+
+const langValue = computed(() => {
+	return locale.value as LanguageType
+})
 const changeLanguage = async (lang: string) => {
+	isOpen.value = false
 	if (locale.value !== lang) {
 		await loadLocaleMessages(lang)
 		locale.value = lang
 	}
 }
 
-const languageInfo = {
+const languageInfo: Record<
+	LanguageType,
+	{ value: string; title: string; icon: string }
+> = {
 	ru: {
 		value: 'ru',
 		title: 'Русский',
@@ -31,46 +42,45 @@ const languageInfo = {
 		icon: 'uzbekistan.svg'
 	}
 }
-const imageSrc = computed(() => {
-	return 'src/assets/flags/' + languageInfo[locale.value].icon
-})
 </script>
 
 <template>
-	<Popover :open="isOpen">
-		<PopoverTrigger as-child>
-			<Button
-				variant="outline"
-				class="w-32 flex items-center justify-between px-5"
-			>
-				<span>{{ languageInfo[locale].title }}</span>
-				<div class="w-6 h-6 bg-cover rounded-full overflow-hidden border">
-					<img
-						class="w-full h-full object-cover"
-						:src="`src/assets/flags/${languageInfo[locale].icon}`"
-						:alt="languageInfo[locale].title"
-					/>
-				</div>
-			</Button>
-		</PopoverTrigger>
-		<PopoverContent class="flex flex-col w-32 p-0">
-			<Button
-				class="flex items-center justify-between px-5"
-				:class="{
-					'bg-gray-200  hover:bg-gray-200': lang.value === locale
-				}"
-				variant="ghost"
-				v-for="lang in languageInfo"
-				:key="lang.value"
-				@click="changeLanguage(lang.value)"
-				><span>{{ lang.title }}</span>
-				<div class="w-6 h-6 bg-cover rounded-full overflow-hidden border">
-					<img
-						class="w-full h-full object-cover"
-						:src="`src/assets/flags/${lang.icon}`"
-						:alt="languageInfo[locale].title"
-					/></div
-			></Button>
-		</PopoverContent>
-	</Popover>
+	<div>
+		<Popover v-model:open="isOpen">
+			<PopoverTrigger as-child>
+				<Button
+					variant="outline"
+					class="w-32 flex items-center justify-between px-5"
+				>
+					<span>{{ languageInfo[langValue].title }}</span>
+					<div class="w-6 h-6 bg-cover rounded-full overflow-hidden border">
+						<img
+							class="w-full h-full object-cover"
+							:src="`src/assets/flags/${languageInfo[langValue].icon}`"
+							:alt="languageInfo[langValue].title"
+						/>
+					</div>
+				</Button>
+			</PopoverTrigger>
+			<PopoverContent class="flex flex-col w-32 p-0">
+				<Button
+					class="flex items-center justify-between px-5"
+					:class="{
+						'bg-gray-200  hover:bg-gray-200': lang.value === langValue
+					}"
+					variant="ghost"
+					v-for="lang in languageInfo"
+					:key="lang.value"
+					@click="changeLanguage(lang.value)"
+					><span>{{ lang.title }}</span>
+					<div class="w-6 h-6 bg-cover rounded-full overflow-hidden border">
+						<img
+							class="w-full h-full object-cover"
+							:src="`src/assets/flags/${lang.icon}`"
+							:alt="languageInfo[langValue].title"
+						/></div
+				></Button>
+			</PopoverContent>
+		</Popover>
+	</div>
 </template>
