@@ -2,6 +2,39 @@
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import ChangeLanguage from '@/components/ChangeLanguage.vue'
+import { ref } from 'vue'
+import { authService } from '@/services/auth.service'
+import { useRouter } from 'vue-router'
+import { ROUTE_URL } from '@/config/url.config'
+import { useToast } from '@/components/ui/toast/use-toast'
+
+const router = useRouter()
+const { toast } = useToast()
+
+const form = ref({
+	Username: '',
+	Password: ''
+})
+
+const handleSubmit = async () => {
+	try {
+		const response = await authService.login(form.value)
+		if (response.data.Code < 0) {
+			toast({
+				title: 'Произошла ошибка',
+				variant: 'destructive',
+				description: response.data.Msg
+			})
+		}
+		router.push(ROUTE_URL.home())
+	} catch (error) {
+		console.log(error)
+		toast({
+			title: 'Произошла ошибка',
+			variant: 'destructive'
+		})
+	}
+}
 </script>
 
 <template>
@@ -10,10 +43,27 @@ import ChangeLanguage from '@/components/ChangeLanguage.vue'
 			<ChangeLanguage />
 		</div>
 		<div class="font-bold text-5xl mb-7 ml-11">Вход</div>
-		<div class="flex flex-col items-center justify-center space-y-5">
-			<Input placeholder="Имя пользователя" class="w-4/5" />
-			<Input placeholder="Пароль" class="w-4/5" />
-			<Button class="w-1/3">{{ $t('login') }}</Button>
-		</div>
+		<form
+			@submit.prevent="handleSubmit"
+			class="flex flex-col items-center justify-center space-y-5"
+		>
+			<Input
+				type="text"
+				id="username"
+				required
+				placeholder="Имя пользователя"
+				class="w-4/5"
+				v-model="form.Username"
+			/>
+			<Input
+				type="password"
+				id="password"
+				required
+				placeholder="Пароль"
+				class="w-4/5"
+				v-model="form.Password"
+			/>
+			<Button type="submit" class="w-1/3">{{ $t('login') }}</Button>
+		</form>
 	</div>
 </template>
