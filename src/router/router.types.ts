@@ -9,5 +9,11 @@ declare module 'vue-router' {
 }
 
 export enum RouteNamesEnum {
-	auth = 'auth'
+	home = 'home',
+	auth = 'auth',
+	monitoring = 'monitoring',
+	operators = 'operators',
+	services = 'services',
+	tickets = 'tickets',
+	branches = 'branches'
 }

@@ -5,7 +5,7 @@ import ChangeLanguage from '@/components/ChangeLanguage.vue'
 </script>
 
 <template>
-	<div class="flex flex-col w-1/4 h-96 bg-gray-200 rounded-xl p-6 mt-60">
+	<div class="flex flex-col w-1/4 h-96 bg-gray-300 rounded-xl p-6 mt-60">
 		<div class="flex justify-end mb-10">
 			<ChangeLanguage />
 		</div>
