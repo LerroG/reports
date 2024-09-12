@@ -57,7 +57,7 @@ const router = createRouter({
 })
 
 router.beforeEach(loadLayoutMiddleware)
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _, next) => {
 	const token = localStorage.getItem('token')
 
 	// Если маршрут требует аутентификации

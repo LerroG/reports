@@ -6,10 +6,8 @@ import { ref } from 'vue'
 import { authService } from '@/services/auth.service'
 import { useRouter } from 'vue-router'
 import { ROUTE_URL } from '@/config/url.config'
-import { useToast } from '@/components/ui/toast/use-toast'
 
 const router = useRouter()
-const { toast } = useToast()
 
 const form = ref({
 	Username: '',
@@ -17,23 +15,9 @@ const form = ref({
 })
 
 const handleSubmit = async () => {
-	try {
-		const response = await authService.login(form.value)
-		if (response.data.Code < 0) {
-			toast({
-				title: 'Произошла ошибка',
-				variant: 'destructive',
-				description: response.data.Msg
-			})
-		}
-		router.push(ROUTE_URL.home())
-	} catch (error) {
-		console.log(error)
-		toast({
-			title: 'Произошла ошибка',
-			variant: 'destructive'
-		})
-	}
+	await authService.login(form.value)
+
+	router.push(ROUTE_URL.home())
 }
 </script>
 
