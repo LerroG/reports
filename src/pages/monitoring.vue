@@ -26,6 +26,1246 @@ const testData = {
 
 	deskInfo: [
 		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
+			deskNumber: 'Усмонова С - 3 хона',
+			deskName: 'Усмонова С - 3 хона',
+			serviceGroupName: '-',
+			clerkName: '-',
+			currentState: 'Не вошел',
+			stateTime: '-',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-'
+		},
+		{
+			clerkName: '-',
+			currentState: 'Не вошел',
+			currentTaskTicketNumber: '-',
+			currentTaskTicketService: '-',
+			deskName: 'Регистратура 4',
+			deskNumber: '04',
+			serviceGroupName: '-',
+			stateTime: '-'
+		},
+		{
+			clerkName: 'Салохиддинова Н',
+			currentState: 'Обслуживание клиента',
+			currentTaskTicketNumber: 'SN2',
+			currentTaskTicketService: 'Салохиддинова Н (4-хона)',
+			deskName: 'Салохиддинова Н (4-хона)',
+			deskNumber: 'Салохиддинова Н (4-хона)',
+			serviceGroupName: 'Салохиддинова Н (4-хона)',
+			stateTime: '00:06:47'
+		},
+		{
 			deskNumber: 'Усмонова С - 3 хона',
 			deskName: 'Усмонова С - 3 хона',
 			serviceGroupName: '-',
