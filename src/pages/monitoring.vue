@@ -10,6 +10,7 @@ import { useGetMonitoringInfo } from '@/queries/monitoring/useGetMonitoringInfo'
 import InfoCell from '@/components/monitoring/InfoCell.vue'
 import DeskInfoTable from '@/components/monitoring/DeskInfoTable.vue'
 import { useQueryClient } from '@tanstack/vue-query'
+import ServiceInfo from '@/components/monitoring/ServiceInfo.vue'
 
 const router = useRouter()
 const route = useRoute()
@@ -132,8 +133,8 @@ watch(selectedBranches, async () => {
 			<!-- Cells -->
 
 			<!-- DeskInfo -->
-			<div>
-				<h2 class="font-bold text-center text-xl mb-6">Информация о пультах</h2>
+			<h2 class="font-bold text-center text-xl mb-6">Информация о пультах</h2>
+			<div class="mb-10 border rounded-2xl">
 				<DeskInfoTable
 					:deskInfo="monitoringInfo?.deskInfo || []"
 					v-if="monitoringInfo?.Code === 0"
@@ -141,6 +142,13 @@ watch(selectedBranches, async () => {
 				<DeskInfoTable :deskInfo="monitoringInfo?.deskInfo || []" v-else />
 			</div>
 			<!-- DeskInfo -->
+
+			<!-- ServiceInfo -->
+			<h2 class="font-bold text-center text-xl mb-6">Информация по услугам</h2>
+			<div class="mb-10 border rounded-2xl">
+				<ServiceInfo :serviceInfo="monitoringInfo?.serviceInfo || []" />
+			</div>
+			<!-- ServiceInfo -->
 		</div>
 	</div>
 </template>

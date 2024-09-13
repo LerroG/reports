@@ -8,29 +8,25 @@ import {
 	TableRow
 } from '@/components/ui/table'
 
-import { IDeskInfo } from '@/types/monitoring.interface'
+import { IServiceInfo } from '@/types/monitoring.interface'
 import Pagination from '../Pagination.vue'
 import { computed, ref } from 'vue'
 
-const props = defineProps<{ deskInfo: IDeskInfo[] }>()
+const props = defineProps<{ serviceInfo: IServiceInfo[] }>()
 const page = ref(1)
 const pageSize = ref('10')
 
 const paginatedData = computed(() => {
 	const start = (page.value - 1) * Number(pageSize.value)
 	const end = start + Number(pageSize.value)
-	return props.deskInfo.slice(start, end)
+	return props.serviceInfo.slice(start, end)
 })
 
 const tableHeaders = [
-	'Оператор',
-	'Название пульта',
-	'Номер пульта',
-	'Номер билета',
-	'Название группы услуг',
 	'Услуга',
-	'Состояние',
-	'Продолжительность состояния'
+	'Количество операций',
+	'Среднее время ожидания',
+	'Среднее время обслуживания'
 ]
 </script>
 
@@ -47,7 +43,7 @@ const tableHeaders = [
 			</TableRow>
 		</TableHeader>
 		<TableBody>
-			<template v-if="deskInfo.length">
+			<template v-if="serviceInfo.length">
 				<TableRow v-for="(desk, idx) in paginatedData" :key="idx">
 					<TableCell class="text-center" v-for="item in desk">
 						{{ item }}
@@ -56,17 +52,17 @@ const tableHeaders = [
 			</template>
 			<template v-else>
 				<TableRow v-for="(_, idx) in 10" :key="idx">
-					<TableCell class="text-center" v-for="_ in 8"> Пусто </TableCell>
+					<TableCell class="text-center" v-for="_ in 4"> Пусто </TableCell>
 				</TableRow>
 			</template>
 		</TableBody>
 	</Table>
 	<div
-		v-if="deskInfo.length > Number(pageSize) || deskInfo.length === 0"
+		v-if="serviceInfo.length > Number(pageSize) || serviceInfo.length === 0"
 		class="flex justify-center my-4"
 	>
 		<Pagination
-			:pagination-info="deskInfo"
+			:pagination-info="serviceInfo"
 			v-model:pagination-page="page"
 			v-model:pagination-page-size="pageSize"
 		/>
