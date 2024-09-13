@@ -6,12 +6,12 @@ const { toast } = useToast()
 class BranchService {
 	async getListBranches() {
 		try {
-			const response = await axiosWithAuth<IGroupBranches[]>({
+			const { data } = await axiosWithAuth<IGroupBranches[]>({
 				url: '/GetListBranches',
 				method: 'GET'
 			})
 
-			if (response.data.length === 0) {
+			if (data.length === 0) {
 				toast({
 					title: 'Произошла ошибка',
 					description: 'Не удалось получить список филиалов, либо список пуст',
@@ -19,7 +19,7 @@ class BranchService {
 				})
 			}
 
-			return response
+			return data
 		} catch (error) {
 			toast({
 				title: 'Произошла ошибка',

@@ -4,25 +4,25 @@ import { IMonitoringInfoResponse } from '@/types/monitoring.interface'
 const { toast } = useToast()
 
 class MonitoringService {
-	async getMonitoringInfo(branchIds: number[]) {
+	async getMonitoringInfo(branchIds: string) {
 		try {
-			const response = await axiosWithAuth<IMonitoringInfoResponse>({
+			const { data } = await axiosWithAuth<IMonitoringInfoResponse>({
 				url: '/GetMonitoringInfo',
 				method: 'GET',
 				params: {
-					branchIds: branchIds.toString()
+					branchIds: branchIds
 				}
 			})
 
-			if (response.data.Code < 0) {
+			if (data.Code < 0) {
 				toast({
 					title: 'Произошла ошибка',
-					description: response.data.Msg,
+					description: data.Msg,
 					variant: 'destructive'
 				})
 			}
 
-			return response
+			return data
 		} catch (error: any) {
 			toast({
 				title: 'Произошла ошибка',

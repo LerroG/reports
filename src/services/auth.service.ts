@@ -37,22 +37,21 @@ class AuthService {
 
 	async logout() {
 		try {
-			const response = await axiosWithAuth<Omit<IAuthResponse, 'Token'>>({
+			localStorage.removeItem('token')
+			router.push(ROUTE_URL.auth())
+			const { data } = await axiosWithAuth<Omit<IAuthResponse, 'Token'>>({
 				url: '/Logout'
-			}).finally(() => {
-				localStorage.removeItem('token')
-				router.push(ROUTE_URL.auth())
 			})
 
-			if (response.data.Code < 0) {
+			if (data.Code < 0) {
 				toast({
 					title: 'Произошла ошибка',
 					variant: 'destructive',
-					description: response.data.Msg
+					description: data.Msg
 				})
 			}
 
-			return response
+			return data
 		} catch (error: any) {
 			toast({
 				title: 'Произошла ошибка',

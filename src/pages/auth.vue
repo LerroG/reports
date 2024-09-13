@@ -13,11 +13,18 @@ const form = ref({
 	Username: '',
 	Password: ''
 })
+const loading = ref(false)
 
 const handleSubmit = async () => {
-	await authService.login(form.value)
-
-	router.push(ROUTE_URL.home())
+	try {
+		loading.value = true
+		await authService.login(form.value)
+		router.push(ROUTE_URL.home())
+	} catch (error) {
+		console.log(error)
+	} finally {
+		loading.value = false
+	}
 }
 </script>
 
@@ -47,7 +54,9 @@ const handleSubmit = async () => {
 				class="w-4/5"
 				v-model="form.Password"
 			/>
-			<Button type="submit" class="w-1/3">{{ $t('login') }}</Button>
+			<Button :disabled="loading" type="submit" class="w-1/3">{{
+				$t('login')
+			}}</Button>
 		</form>
 	</div>
 </template>
