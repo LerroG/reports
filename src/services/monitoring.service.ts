@@ -5,6 +5,7 @@ const { toast } = useToast()
 
 class MonitoringService {
 	async getMonitoringInfo(branchIds: string) {
+		if (!branchIds) return null
 		try {
 			const { data } = await axiosWithAuth<IMonitoringInfoResponse>({
 				url: '/GetMonitoringInfo',

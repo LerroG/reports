@@ -57,19 +57,19 @@ const router = createRouter({
 })
 
 router.beforeEach(loadLayoutMiddleware)
-// router.beforeEach((to, _, next) => {
-// 	const token = localStorage.getItem('token')
+router.beforeEach((to, _, next) => {
+	const token = localStorage.getItem('token')
 
-// 	// Если маршрут требует аутентификации
-// 	if (to.matched.some(record => record.meta.requiresAuth)) {
-// 		if (token) {
-// 			next() // Пропустить, если токен есть
-// 		} else {
-// 			next(ROUTE_URL.auth()) // Перенаправить на страницу логина
-// 		}
-// 	} else {
-// 		next() // Пропустить, если маршрут не требует аутентификации
-// 	}
-// })
+	// Если маршрут требует аутентификации
+	if (to.matched.some(record => record.meta.requiresAuth)) {
+		if (token) {
+			next() // Пропустить, если токен есть
+		} else {
+			next(ROUTE_URL.auth()) // Перенаправить на страницу логина
+		}
+	} else {
+		next() // Пропустить, если маршрут не требует аутентификации
+	}
+})
 
 export default router

@@ -21,30 +21,44 @@ const paginatedData = computed(() => {
 	const end = start + Number(pageSize.value)
 	return props.deskInfo.slice(start, end)
 })
+
+const tableHeaders = [
+	'Оператор',
+	'Название пульта',
+	'Номер пульта',
+	'Номер билета',
+	'Название группы услуг',
+	'Услуга',
+	'Состояние',
+	'Продолжительность состояния'
+]
 </script>
 
 <template>
 	<Table class="mb-4">
 		<TableHeader>
 			<TableRow>
-				<TableHead class="text-center"> Оператор </TableHead>
-				<TableHead class="text-center">Название пульта</TableHead>
-				<TableHead class="text-center">Номер пульта</TableHead>
-				<TableHead class="text-center">Номер билета</TableHead>
-				<TableHead class="text-center">Название группы услуг</TableHead>
-				<TableHead class="text-center">Услуга</TableHead>
-				<TableHead class="text-center">Состояние</TableHead>
-				<TableHead class="text-center w-[100px]">
-					Продолжительность состояния
+				<TableHead
+					class="text-center max-w-[100px]"
+					v-for="item in tableHeaders"
+				>
+					{{ item }}
 				</TableHead>
 			</TableRow>
 		</TableHeader>
 		<TableBody>
-			<TableRow v-for="(desk, idx) in paginatedData" :key="idx">
-				<TableCell class="text-center" v-for="item in desk">
-					{{ item }}
-				</TableCell>
-			</TableRow>
+			<template v-if="deskInfo.length">
+				<TableRow v-for="(desk, idx) in paginatedData" :key="idx">
+					<TableCell class="text-center" v-for="item in desk">
+						{{ item }}
+					</TableCell>
+				</TableRow>
+			</template>
+			<template v-else>
+				<TableRow v-for="(_, idx) in 10" :key="idx">
+					<TableCell class="text-center" v-for="_ in 8"> Пусто </TableCell>
+				</TableRow>
+			</template>
 		</TableBody>
 	</Table>
 	<div class="flex justify-center">
@@ -52,7 +66,7 @@ const paginatedData = computed(() => {
 			:pagination-info="deskInfo"
 			v-model:pagination-page="page"
 			v-model:pagination-page-size="pageSize"
-			v-if="deskInfo.length > Number(pageSize)"
+			v-if="deskInfo.length > Number(pageSize) || deskInfo.length === 0"
 		/>
 	</div>
 </template>

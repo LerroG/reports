@@ -1,18 +1,19 @@
 import { monitoringService } from '@/services/monitoring.service'
 import { useQuery } from '@tanstack/vue-query'
 import { useRoute } from 'vue-router'
-import { ref } from 'vue'
+import { computed } from 'vue'
 
 export const useGetMonitoringInfo = () => {
 	const route = useRoute()
-	const query = ref(route.query as { branchIds: string })
+	const query = computed(() => route.query.branchIds as string)
 
-	const { data: monitoringInfo, isLoading: isMonitoringInfoLoading } = useQuery(
-		{
-			queryKey: ['get monitoring info'],
-			queryFn: () => monitoringService.getMonitoringInfo(query.value.branchIds)
-		}
-	)
+	const { data: monitoringInfo, refetch: refetchMonitoringInfo } = useQuery({
+		queryKey: ['get monitoring info'],
+		queryFn: () => monitoringService.getMonitoringInfo(query.value)
+	})
 
-	return { monitoringInfo, isMonitoringInfoLoading }
+	return {
+		monitoringInfo,
+		refetchMonitoringInfo
+	}
 }
