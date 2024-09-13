@@ -11,6 +11,7 @@ import InfoCell from '@/components/monitoring/InfoCell.vue'
 import DeskInfoTable from '@/components/monitoring/DeskInfoTable.vue'
 import { useQueryClient } from '@tanstack/vue-query'
 import ServiceInfo from '@/components/monitoring/ServiceInfo.vue'
+import Chart from '@/components/monitoring/Chart.vue'
 
 const router = useRouter()
 const route = useRoute()
@@ -112,25 +113,38 @@ watch(selectedBranches, async () => {
 			</div>
 			<!-- Select -->
 
-			<!-- Cells -->
-			<div
-				class="grid grid-cols-4 gap-4 mb-8"
-				v-if="monitoringInfo?.Code === 0"
-			>
-				<InfoCell
-					v-for="cellInfo in cellsInfo"
-					:key="cellInfo.title"
-					:info="cellInfo"
-				/>
+			<div class="flex mb-8 w-full">
+				<!-- Cells -->
+				<div class="w-1/2">
+					<div class="grid grid-cols-3 gap-4" v-if="monitoringInfo?.Code === 0">
+						<InfoCell
+							v-for="cellInfo in cellsInfo"
+							:key="cellInfo.title"
+							:info="cellInfo"
+						/>
+					</div>
+					<div class="grid grid-cols-3 gap-4" v-else>
+						<InfoCell
+							v-for="cellInfo in cellsInfoEmpty"
+							:key="cellInfo.title"
+							:info="cellInfo"
+						/>
+					</div>
+					<!-- Cells -->
+				</div>
+				<!-- Chart -->
+				<div class="w-1/2">
+					<!-- <Chart
+							v-if="monitoringInfo?.Code === 0"
+							:service-info-graph="monitoringInfo?.serviceInfoGraph || []"
+						/> -->
+					<Chart
+						:mock="true"
+						:service-info-graph="monitoringInfo?.serviceInfoGraph || []"
+					/>
+				</div>
+				<!-- Chart -->
 			</div>
-			<div class="grid grid-cols-4 gap-4 mb-8" v-else>
-				<InfoCell
-					v-for="cellInfo in cellsInfoEmpty"
-					:key="cellInfo.title"
-					:info="cellInfo"
-				/>
-			</div>
-			<!-- Cells -->
 
 			<!-- DeskInfo -->
 			<h2 class="font-bold text-center text-xl mb-6">Информация о пультах</h2>
