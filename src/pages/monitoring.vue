@@ -163,6 +163,15 @@ watch(selectedBranches, async () => {
 				<ServiceInfo :serviceInfo="monitoringInfo?.serviceInfo || []" />
 			</div>
 			<!-- ServiceInfo -->
+
+			<!-- ServiceWaitTimeInfo -->
+			<h2 class="font-bold text-center text-xl mb-6">
+				Время ожидания по услугам
+			</h2>
+			<div class="mb-10 border rounded-2xl">
+				<ServiceWaitTimeInfo :serviceInfo="monitoringInfo?.serviceInfo || []" />
+			</div>
+			<!-- ServiceWaitTimeInfo -->
 		</div>
 	</div>
 </template>
