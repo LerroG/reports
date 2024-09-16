@@ -77,8 +77,8 @@ const generalData = computed(() => {
 					</TableRow>
 				</TableHeader>
 				<TableBody>
-					<TableRow v-for="(desk, idx) in paginatedData" :key="idx">
-						<TableCell class="text-center" v-for="item in desk">
+					<TableRow v-for="(service, idx) in paginatedData" :key="idx">
+						<TableCell class="text-center" v-for="item in service">
 							{{ item }}
 						</TableCell>
 					</TableRow>

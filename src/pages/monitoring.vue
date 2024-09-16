@@ -13,6 +13,7 @@ import { useQueryClient } from '@tanstack/vue-query'
 import ServiceInfo from '@/components/monitoring/ServiceInfo.vue'
 import Chart from '@/components/monitoring/Chart.vue'
 import ServiceWaitTimeInfo from '@/components/monitoring/ServiceWaitTimeInfo.vue'
+import WaitingClients from '@/components/monitoring/WaitingClients.vue'
 
 const router = useRouter()
 const route = useRoute()
@@ -159,6 +160,13 @@ watch(selectedBranches, async () => {
 				/>
 			</div>
 			<!-- ServiceWaitTimeInfo -->
+
+			<!-- DeskInfo -->
+			<h2 class="font-bold text-center text-xl mb-6">Ожидающие клиенты</h2>
+			<div class="mb-10 border rounded-2xl">
+				<WaitingClients :deskInfo="monitoringInfo?.deskInfo || []" />
+			</div>
+			<!-- DeskInfo -->
 		</div>
 	</div>
 </template>

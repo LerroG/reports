@@ -16,22 +16,33 @@ const props = defineProps<{ deskInfo: IDeskInfo[] }>()
 const page = ref(1)
 const pageSize = ref('10')
 
+const tableHeaders = [
+	'Оператор',
+	'Номер пульта',
+	'Название пульта',
+	'Услуга',
+	'Название группы услуг',
+	'Номер билета',
+	'Состояние',
+	'Продолжительность состояния'
+]
+
 const paginatedData = computed(() => {
 	const start = (page.value - 1) * Number(pageSize.value)
 	const end = start + Number(pageSize.value)
-	return props.deskInfo.slice(start, end)
+	return props.deskInfo
+		?.map(desk => ({
+			clerkName: desk.clerkName,
+			deskNumber: desk.deskNumber,
+			deskName: desk.deskName,
+			currentTaskTicketService: desk.currentTaskTicketService,
+			serviceGroupName: desk.serviceGroupName,
+			currentTaskTicketNumber: desk.currentTaskTicketNumber,
+			currentState: desk.currentState,
+			stateTime: desk.stateTime
+		}))
+		.slice(start, end)
 })
-
-const tableHeaders = [
-	'Оператор',
-	'Состояние',
-	'Номер билета',
-	'Услуга',
-	'Название пульта',
-	'Номер пульта',
-	'Название группы услуг',
-	'Продолжительность состояния'
-]
 </script>
 
 <template>
