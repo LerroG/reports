@@ -7,7 +7,7 @@ export const useGetMonitoringInfo = () => {
 	const route = useRoute()
 	const query = computed(() => route.query.branchIds as string)
 
-	const { data: monitoringInfo, refetch: refetchMonitoringInfo } = useQuery({
+	const { data: monitoringInfo, refetch: refetchMonitoringInfo, isPending: isMonitoringInfoPending } = useQuery({
 		queryKey: ['get monitoring info'],
 		queryFn: () => monitoringService.getMonitoringInfo(query.value),
 		refetchInterval: 10000
@@ -15,6 +15,7 @@ export const useGetMonitoringInfo = () => {
 
 	return {
 		monitoringInfo,
-		refetchMonitoringInfo
+		refetchMonitoringInfo,
+		isMonitoringInfoPending
 	}
 }

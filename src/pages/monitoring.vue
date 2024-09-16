@@ -15,14 +15,17 @@ import Chart from '@/components/monitoring/Chart.vue'
 import ServiceWaitTimeInfo from '@/components/monitoring/ServiceWaitTimeInfo.vue'
 import WaitingClients from '@/components/monitoring/WaitingClients.vue'
 import { debounce } from 'lodash'
+import { VueSpinner } from 'vue3-spinners'
 
 const router = useRouter()
 const route = useRoute()
 const queryClient = useQueryClient()
 const hasFetched = ref(false)
+const loading = ref(false)
 const selectedBranches = ref<IBranch[]>()
 const { branchesList, isBranchesListSuccess } = useGetBranches()
-const { monitoringInfo, refetchMonitoringInfo } = useGetMonitoringInfo()
+const { monitoringInfo, refetchMonitoringInfo, isMonitoringInfoPending } =
+	useGetMonitoringInfo()
 const cellsInfo = computed(() => [
 	{
 		title: 'Выдано билетов',
@@ -68,13 +71,15 @@ const setSelectedBranches = (query: string) => {
 	selectedBranches.value = result
 }
 
-const refetchData = debounce(() => {
-	refetchMonitoringInfo()
-}, 2000)
-
 const branchIds = computed(
 	() => selectedBranches.value?.map(branch => branch.BranchId) || []
 )
+
+const refetchData = debounce(() => {
+	refetchMonitoringInfo().finally(() => {
+		loading.value = false
+	})
+}, 500)
 
 watch(isBranchesListSuccess, () => {
 	const queryParams = (route.query.branchIds as string) || ''
@@ -83,6 +88,7 @@ watch(isBranchesListSuccess, () => {
 })
 
 watch(selectedBranches, async () => {
+	loading.value = true
 	await router
 		.replace({
 			name: RouteNamesEnum.monitoring,
@@ -91,15 +97,15 @@ watch(selectedBranches, async () => {
 				: {}
 		})
 		.then(() => {
-			if (selectedBranches) {
+			if (selectedBranches.value) {
 				refetchData()
 			}
-		})
 
-	if (!selectedBranches.value?.length)
-		queryClient.removeQueries({
-			queryKey: ['get monitoring info'],
-			exact: true
+			if (!selectedBranches.value?.length)
+				queryClient.removeQueries({
+					queryKey: ['get monitoring info'],
+					exact: true
+				})
 		})
 })
 </script>
@@ -120,6 +126,15 @@ watch(selectedBranches, async () => {
 		<h1 class="font-bold text-xl text-center" v-if="!selectedBranches?.length">
 			Выберите филиалы для отображения информации
 		</h1>
+		<!-- If not selectedBranches -->
+
+		<!-- If not selectedBranches -->
+		<div
+			class="flex justify-center mt-20"
+			v-else-if="loading || isMonitoringInfoPending"
+		>
+			<VueSpinner size="50" color="#3b82f6" />
+		</div>
 		<!-- If not selectedBranches -->
 
 		<div v-else>
