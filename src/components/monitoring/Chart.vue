@@ -16,11 +16,32 @@ const props = defineProps<{
 }>()
 
 const serviceTitles = ['Услуга', 'Кол-во билетов', 'Кол-во билетов в процентах']
-
+const test = [
+	{
+		name: 'service.serviceName',
+		taskCount: 1,
+		taskCountPercent: 'service.taskCountPercent'
+	},
+	{
+		name: 'service.serviceName',
+		taskCount: 2,
+		taskCountPercent: 'service.taskCountPercent'
+	},
+	{
+		name: 'service.serviceName',
+		taskCount: 0,
+		taskCountPercent: 'service.taskCountPercent'
+	},
+	{
+		name: 'service.serviceName',
+		taskCount: 1,
+		taskCountPercent: 'service.taskCountPercent'
+	}
+]
 const formetedData = computed(() =>
 	props.serviceInfoGraph.map(service => ({
 		name: service.serviceName,
-		taskCount: service.taskCount > 0 ? service.taskCount : 10,
+		taskCount: service.taskCount,
 		taskCountPercent: service.taskCountPercent
 	}))
 )
@@ -58,6 +79,7 @@ const formetedData = computed(() =>
 				:category="'taskCount'"
 				:data="formetedData"
 				:type="'pie'"
+				:colors="['#fec76f', '#f5945c', '#71a3c1', '#44b585']"
 			/>
 		</div>
 	</div>
