@@ -9,7 +9,8 @@ export const useGetMonitoringInfo = () => {
 
 	const { data: monitoringInfo, refetch: refetchMonitoringInfo } = useQuery({
 		queryKey: ['get monitoring info'],
-		queryFn: () => monitoringService.getMonitoringInfo(query.value)
+		queryFn: () => monitoringService.getMonitoringInfo(query.value),
+		refetchInterval: 10000
 	})
 
 	return {

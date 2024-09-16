@@ -44,11 +44,17 @@ const routes: IMenuItem[] = [
 			:to="route.link"
 			v-for="route in routes"
 			:key="route.link"
-			active-class="text-blue-500 bg-blue-200/20 hover:bg-blue-200/20 hover:text-blue-500"
 			class="flex items-center gap-x-3 text-slate-500 font-medium py-2.5 rounded-lg hover:bg-blue-200/20 hover:text-blue-500 hover:drop-shadow-sm bg-transparent transition-all duration-200"
+			active-class="active_class"
 		>
 			<component :is="route.icon" />
 			{{ route.value }}
 		</RouterLink>
 	</nav>
 </template>
+
+<style scoped>
+.active_class {
+	@apply text-blue-500 bg-blue-200/20 hover:bg-blue-200/20 hover:text-blue-500;
+}
+</style>

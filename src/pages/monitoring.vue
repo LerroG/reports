@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BranchesSelect from '@/components/monitoring/BranchesSelect.vue'
 import { IBranch } from '@/types/branches.interface'
-import { computed, ref, watch, watchEffect } from 'vue'
+import { computed, ref, watch } from 'vue'
 import Heading from '@/components/Heading.vue'
 import { useGetBranches } from '@/queries/branches/useGetBranches'
 import { useRoute, useRouter } from 'vue-router'
@@ -14,13 +14,14 @@ import ServiceInfo from '@/components/monitoring/ServiceInfo.vue'
 import Chart from '@/components/monitoring/Chart.vue'
 import ServiceWaitTimeInfo from '@/components/monitoring/ServiceWaitTimeInfo.vue'
 import WaitingClients from '@/components/monitoring/WaitingClients.vue'
+import { debounce } from 'lodash'
 
 const router = useRouter()
 const route = useRoute()
 const queryClient = useQueryClient()
-const hasFetched = ref(0)
+const hasFetched = ref(false)
 const selectedBranches = ref<IBranch[]>()
-const { branchesList } = useGetBranches()
+const { branchesList, isBranchesListSuccess } = useGetBranches()
 const { monitoringInfo, refetchMonitoringInfo } = useGetMonitoringInfo()
 const cellsInfo = computed(() => [
 	{
@@ -59,42 +60,47 @@ const cellsInfo = computed(() => [
 
 // Methods
 // Установка в селект данных если есть ID в роуте
-const setSelectedBranches = () => {
-	if (!route.query.branchIds) return
-	const ids = (route.query.branchIds as string)
-		.split(',')
-		.map(id => parseInt(id))
+const setSelectedBranches = (query: string) => {
+	const ids = query.split(',').map(id => parseInt(id))
 	const result = branchesList.value?.flatMap(group =>
 		group.branches.filter(branch => ids.includes(branch.BranchId))
 	)
 	selectedBranches.value = result
-	return result
 }
+
+const refetchData = debounce(() => {
+	refetchMonitoringInfo()
+}, 2000)
 
 const branchIds = computed(
 	() => selectedBranches.value?.map(branch => branch.BranchId) || []
 )
 
-watchEffect(() => {
-	if (hasFetched.value < 2 && route.query.branchIds) setSelectedBranches()
-	hasFetched.value++
+watch(isBranchesListSuccess, () => {
+	const queryParams = (route.query.branchIds as string) || ''
+	if (!hasFetched.value && queryParams) setSelectedBranches(queryParams)
+	hasFetched.value = true
 })
 
 watch(selectedBranches, async () => {
-	await router.replace({
-		name: RouteNamesEnum.monitoring,
-		query: selectedBranches.value?.length
-			? { branchIds: branchIds?.value.toString() }
-			: {}
-	})
+	await router
+		.replace({
+			name: RouteNamesEnum.monitoring,
+			query: selectedBranches.value?.length
+				? { branchIds: branchIds?.value.toString() }
+				: {}
+		})
+		.then(() => {
+			if (selectedBranches) {
+				refetchData()
+			}
+		})
 
 	if (!selectedBranches.value?.length)
 		queryClient.removeQueries({
 			queryKey: ['get monitoring info'],
 			exact: true
 		})
-
-	refetchMonitoringInfo()
 })
 </script>
 
