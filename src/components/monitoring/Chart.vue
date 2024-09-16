@@ -9,33 +9,21 @@ import {
 	TableHeader,
 	TableRow
 } from '@/components/ui/table'
+import { computed } from 'vue'
 
-defineProps<{ serviceInfoGraph: IServiceInfoGraph[]; mock?: boolean }>()
+const props = defineProps<{
+	serviceInfoGraph: IServiceInfoGraph[]
+}>()
 
 const serviceTitles = ['Услуга', 'Кол-во билетов', 'Кол-во билетов в процентах']
 
-const data = [
-	{
-		name: 'Jan',
-		total: Math.floor(Math.random() * 2000) + 500,
-		predicted: Math.floor(Math.random() * 2000) + 500
-	},
-	{
-		name: 'Feb',
-		total: Math.floor(Math.random() * 2000) + 500,
-		predicted: Math.floor(Math.random() * 2000) + 500
-	},
-	{
-		name: 'Mar',
-		total: Math.floor(Math.random() * 2000) + 500,
-		predicted: Math.floor(Math.random() * 2000) + 500
-	},
-	{
-		name: 'Apr',
-		total: Math.floor(Math.random() * 2000) + 500,
-		predicted: Math.floor(Math.random() * 2000) + 500
-	}
-]
+const formetedData = computed(() =>
+	props.serviceInfoGraph.map(service => ({
+		name: service.serviceName,
+		taskCount: service.taskCount > 0 ? service.taskCount : 10,
+		taskCountPercent: service.taskCountPercent
+	}))
+)
 </script>
 
 <template>
@@ -56,34 +44,19 @@ const data = [
 					</TableRow>
 				</TableHeader>
 				<TableBody>
-					<template v-if="serviceInfoGraph.length">
-						<TableRow v-for="(item, idx) in serviceInfoGraph" :key="idx">
-							<TableCell class="text-center" v-for="itemInner in item">
-								{{ itemInner }}
-							</TableCell>
-						</TableRow>
-					</template>
-					<template v-else>
-						<TableRow v-for="(_, idx) in 4" :key="idx">
-							<TableCell class="text-center" v-for="_ in 3"> Пусто </TableCell>
-						</TableRow>
-					</template>
+					<TableRow v-for="(item, idx) in serviceInfoGraph" :key="idx">
+						<TableCell class="text-center" v-for="itemInner in item">
+							{{ itemInner }}
+						</TableCell>
+					</TableRow>
 				</TableBody>
 			</Table>
 		</div>
 		<div class="chart_pie flex justify-center items-center">
 			<DonutChart
-				v-if="mock"
 				index="name"
-				:category="'total'"
-				:data="data"
-				:type="'pie'"
-			/>
-			<DonutChart
-				v-else
-				index="serviceName"
 				:category="'taskCount'"
-				:data="serviceInfoGraph"
+				:data="formetedData"
 				:type="'pie'"
 			/>
 		</div>

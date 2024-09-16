@@ -47,22 +47,15 @@ const tableHeaders = [
 			</TableRow>
 		</TableHeader>
 		<TableBody>
-			<template v-if="deskInfo.length">
-				<TableRow v-for="(desk, idx) in paginatedData" :key="idx">
-					<TableCell class="text-center" v-for="item in desk">
-						{{ item }}
-					</TableCell>
-				</TableRow>
-			</template>
-			<template v-else>
-				<TableRow v-for="(_, idx) in 10" :key="idx">
-					<TableCell class="text-center" v-for="_ in 8"> Пусто </TableCell>
-				</TableRow>
-			</template>
+			<TableRow v-for="(desk, idx) in paginatedData" :key="idx">
+				<TableCell class="text-center" v-for="item in desk">
+					{{ item }}
+				</TableCell>
+			</TableRow>
 		</TableBody>
 	</Table>
 	<div
-		v-if="deskInfo.length > Number(pageSize) || deskInfo.length === 0"
+		v-if="deskInfo.length > Number(pageSize)"
 		class="flex justify-center my-4"
 	>
 		<Pagination

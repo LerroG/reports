@@ -19,14 +19,21 @@ const pageSize = ref('10')
 const paginatedData = computed(() => {
 	const start = (page.value - 1) * Number(pageSize.value)
 	const end = start + Number(pageSize.value)
-	return props.serviceInfo.slice(start, end)
+	return props.serviceInfo
+		.map(service => ({
+			serviceName: service.serviceName,
+			taskCount: service.taskCount,
+			avgWaitTime: service.avgWaitTime,
+			avgAdminTime: service.avgAdminTime
+		}))
+		.slice(start, end)
 })
 
 const tableHeaders = [
-	'Среднее время обслуживания',
-	'Среднее время ожидания',
 	'Услуга',
-	'Количество операций'
+	'Количество операций',
+	'Среднее время ожидания',
+	'Среднее время обслуживания'
 ]
 </script>
 
@@ -43,22 +50,15 @@ const tableHeaders = [
 			</TableRow>
 		</TableHeader>
 		<TableBody>
-			<template v-if="serviceInfo.length">
-				<TableRow v-for="(desk, idx) in paginatedData" :key="idx">
-					<TableCell class="text-center" v-for="item in desk">
-						{{ item }}
-					</TableCell>
-				</TableRow>
-			</template>
-			<template v-else>
-				<TableRow v-for="(_, idx) in 10" :key="idx">
-					<TableCell class="text-center" v-for="_ in 4"> Пусто </TableCell>
-				</TableRow>
-			</template>
+			<TableRow v-for="(service, idx) in paginatedData" :key="idx">
+				<TableCell class="text-center" v-for="item in service">
+					{{ item }}
+				</TableCell>
+			</TableRow>
 		</TableBody>
 	</Table>
 	<div
-		v-if="serviceInfo.length > Number(pageSize) || serviceInfo.length === 0"
+		v-if="serviceInfo.length > Number(pageSize)"
 		class="flex justify-center my-4"
 	>
 		<Pagination

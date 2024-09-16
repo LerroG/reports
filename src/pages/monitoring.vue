@@ -12,6 +12,7 @@ import DeskInfoTable from '@/components/monitoring/DeskInfoTable.vue'
 import { useQueryClient } from '@tanstack/vue-query'
 import ServiceInfo from '@/components/monitoring/ServiceInfo.vue'
 import Chart from '@/components/monitoring/Chart.vue'
+import ServiceWaitTimeInfo from '@/components/monitoring/ServiceWaitTimeInfo.vue'
 
 const router = useRouter()
 const route = useRoute()
@@ -54,10 +55,6 @@ const cellsInfo = computed(() => [
 		value: monitoringInfo.value?.serviceLevelPerc
 	}
 ])
-const cellsInfoEmpty = cellsInfo.value.map(item => ({
-	title: item.title,
-	value: 'Пусто'
-}))
 
 // Methods
 // Установка в селект данных если есть ID в роуте
@@ -103,29 +100,28 @@ watch(selectedBranches, async () => {
 <template>
 	<div class="pt-3 px-6">
 		<Heading title="Мониторинг" />
-		<div>
-			<!-- Select -->
-			<div class="mb-6 max-w-80">
-				<BranchesSelect
-					:branches-group="branchesList || []"
-					v-model="selectedBranches"
-				/>
-			</div>
-			<!-- Select -->
+		<!-- Select -->
+		<div class="mb-6 max-w-80">
+			<BranchesSelect
+				:branches-group="branchesList || []"
+				v-model="selectedBranches"
+			/>
+		</div>
+		<!-- Select -->
 
+		<!-- If not selectedBranches -->
+		<h1 class="font-bold text-xl text-center" v-if="!selectedBranches?.length">
+			Выберите филиалы для отображения информации
+		</h1>
+		<!-- If not selectedBranches -->
+
+		<div v-else>
 			<div class="flex mb-8 w-full">
 				<!-- Cells -->
 				<div class="w-1/2">
-					<div class="grid grid-cols-3 gap-4" v-if="monitoringInfo?.Code === 0">
+					<div class="grid grid-cols-3 gap-4">
 						<InfoCell
 							v-for="cellInfo in cellsInfo"
-							:key="cellInfo.title"
-							:info="cellInfo"
-						/>
-					</div>
-					<div class="grid grid-cols-3 gap-4" v-else>
-						<InfoCell
-							v-for="cellInfo in cellsInfoEmpty"
 							:key="cellInfo.title"
 							:info="cellInfo"
 						/>
@@ -134,14 +130,7 @@ watch(selectedBranches, async () => {
 				</div>
 				<!-- Chart -->
 				<div class="w-1/2">
-					<!-- <Chart
-							v-if="monitoringInfo?.Code === 0"
-							:service-info-graph="monitoringInfo?.serviceInfoGraph || []"
-						/> -->
-					<Chart
-						:mock="true"
-						:service-info-graph="monitoringInfo?.serviceInfoGraph || []"
-					/>
+					<Chart :service-info-graph="monitoringInfo?.serviceInfoGraph || []" />
 				</div>
 				<!-- Chart -->
 			</div>
@@ -149,11 +138,7 @@ watch(selectedBranches, async () => {
 			<!-- DeskInfo -->
 			<h2 class="font-bold text-center text-xl mb-6">Информация о пультах</h2>
 			<div class="mb-10 border rounded-2xl">
-				<DeskInfoTable
-					:deskInfo="monitoringInfo?.deskInfo || []"
-					v-if="monitoringInfo?.Code === 0"
-				/>
-				<DeskInfoTable :deskInfo="monitoringInfo?.deskInfo || []" v-else />
+				<DeskInfoTable :deskInfo="monitoringInfo?.deskInfo || []" />
 			</div>
 			<!-- DeskInfo -->
 
@@ -168,8 +153,10 @@ watch(selectedBranches, async () => {
 			<h2 class="font-bold text-center text-xl mb-6">
 				Время ожидания по услугам
 			</h2>
-			<div class="mb-10 border rounded-2xl">
-				<ServiceWaitTimeInfo :serviceInfo="monitoringInfo?.serviceInfo || []" />
+			<div class="mb-10">
+				<ServiceWaitTimeInfo
+					:serviceWaitTimeInfo="monitoringInfo?.serviceWaitTimeInfo"
+				/>
 			</div>
 			<!-- ServiceWaitTimeInfo -->
 		</div>
