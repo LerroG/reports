@@ -1,7 +1,7 @@
 import { createI18n } from 'vue-i18n'
 
 const i18n = createI18n({
-	locale: 'ru', // Язык по умолчанию
+	locale: localStorage.getItem('lang') || 'ru', // Язык по умолчанию
 	fallbackLocale: 'ru', // Язык по умолчанию, если перевод не найден
 	messages: {} // Изначально пустой объект
 })

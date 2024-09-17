@@ -7,7 +7,7 @@ import { VueQueryPlugin } from '@tanstack/vue-query'
 
 const app = createApp(App)
 
-loadLocaleMessages('ru')
+loadLocaleMessages(localStorage.getItem('lang') || 'ru')
 
 app.use(router)
 app.use(VueQueryPlugin)

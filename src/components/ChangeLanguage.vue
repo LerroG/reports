@@ -23,6 +23,7 @@ const changeLanguage = async (lang: string) => {
 	isOpen.value = false
 	if (locale.value !== lang) {
 		await loadLocaleMessages(lang)
+		localStorage.setItem('lang', lang)
 		locale.value = lang
 	}
 }
