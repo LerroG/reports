@@ -10,34 +10,18 @@ import {
 	TableRow
 } from '@/components/ui/table'
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const props = defineProps<{
 	serviceInfoGraph: IServiceInfoGraph[]
 }>()
 
-const serviceTitles = ['Услуга', 'Кол-во билетов', 'Кол-во билетов в процентах']
-const test = [
-	{
-		name: 'service.serviceName',
-		taskCount: 1,
-		taskCountPercent: 'service.taskCountPercent'
-	},
-	{
-		name: 'service.serviceName',
-		taskCount: 2,
-		taskCountPercent: 'service.taskCountPercent'
-	},
-	{
-		name: 'service.serviceName',
-		taskCount: 0,
-		taskCountPercent: 'service.taskCountPercent'
-	},
-	{
-		name: 'service.serviceName',
-		taskCount: 1,
-		taskCountPercent: 'service.taskCountPercent'
-	}
-]
+const serviceTitles = computed(() => [
+	t('Service'),
+	t('Number of tickets'),
+	t('Number of tickets in percent')
+])
 const formetedData = computed(() =>
 	props.serviceInfoGraph.map(service => ({
 		name: service.serviceName,
@@ -51,7 +35,7 @@ const formetedData = computed(() =>
 	<div class="flex justify-center">
 		<div>
 			<div class="font-bold text-center text-xl mb-4">
-				Выданные билеты по услугам
+				{{ $t('Tickets issued by service') }}
 			</div>
 			<Table>
 				<TableHeader>

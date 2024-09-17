@@ -12,24 +12,26 @@ import { IServiceWaitTimeInfo } from '@/types/monitoring.interface'
 import Pagination from '../Pagination.vue'
 import { computed, ref } from 'vue'
 import InfoCell from './InfoCell.vue'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const props = defineProps<{ serviceWaitTimeInfo?: IServiceWaitTimeInfo }>()
 const page = ref(1)
 const pageSize = ref('10')
 
-const tableHeaders = [
-	'Услуга',
-	'0 - 15 мин',
-	'0 - 15 мин в %',
-	'15 - 30 мин',
-	'15 - 30 мин в %',
-	'30 - 45 мин',
-	'30 - 45 мин в %',
-	'> 45 мин',
-	'> 45 мин в %',
-	'Общее',
-	'Общее в %'
-]
+const tableHeaders = computed(() => [
+	t('Service'),
+	`0 - 15 ${t('Min')}`,
+	`0 - 15 ${t('Min %')}`,
+	`15 - 30 ${t('Min')}`,
+	`15 - 30 ${t('Min %')}`,
+	`30 - 45 ${t('Min')}`,
+	`30 - 45 ${t('Min %')}`,
+	`> 45 ${t('Min')}`,
+	`> 45 ${t('Min %')}`,
+	t('General'),
+	t('General %')
+])
 
 const paginatedData = computed(() => {
 	const start = (page.value - 1) * Number(pageSize.value)
@@ -55,7 +57,7 @@ const generalData = computed(() => {
 	if (props.serviceWaitTimeInfo) {
 		const { serviceWaitInfo, ...items } = props.serviceWaitTimeInfo
 		return Object.entries(items).map(([_, value], idx) => ({
-			title: tableHeaders[idx + 1],
+			title: tableHeaders.value[idx + 1],
 			value: value
 		}))
 	}
@@ -100,7 +102,7 @@ const generalData = computed(() => {
 			</div>
 		</div>
 		<h2 class="font-bold text-center text-xl mb-6">
-			Общая информация о пультах
+			{{ $t('General information about remote controls') }}
 		</h2>
 		<div class="grid grid-cols-9 gap-4">
 			<InfoCell v-for="(info, idx) in generalData" :key="idx" :info="info" />

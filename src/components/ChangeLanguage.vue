@@ -56,7 +56,7 @@ const languageInfo: Record<
 					<div class="w-6 h-6 bg-cover rounded-full overflow-hidden border">
 						<img
 							class="w-full h-full object-cover"
-							:src="`src/assets/flags/${languageInfo[langValue].icon}`"
+							:src="`/flags/${languageInfo[langValue].icon}`"
 							:alt="languageInfo[langValue].title"
 						/>
 					</div>
@@ -76,7 +76,7 @@ const languageInfo: Record<
 					<div class="w-6 h-6 bg-cover rounded-full overflow-hidden border">
 						<img
 							class="w-full h-full object-cover"
-							:src="`src/assets/flags/${lang.icon}`"
+							:src="`/flags/${lang.icon}`"
 							:alt="languageInfo[langValue].title"
 						/></div
 				></Button>

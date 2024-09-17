@@ -16,6 +16,9 @@ import ServiceWaitTimeInfo from '@/components/monitoring/ServiceWaitTimeInfo.vue
 import WaitingClients from '@/components/monitoring/WaitingClients.vue'
 import { debounce } from 'lodash'
 import { VueSpinner } from 'vue3-spinners'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const router = useRouter()
 const route = useRoute()
@@ -26,37 +29,38 @@ const selectedBranches = ref<IBranch[]>()
 const { branchesList, isBranchesListSuccess } = useGetBranches()
 const { monitoringInfo, refetchMonitoringInfo, isMonitoringInfoPending } =
 	useGetMonitoringInfo()
+
 const cellsInfo = computed(() => [
 	{
-		title: 'Выдано билетов',
+		title: `${t('Tickets issued')}`,
 		value: monitoringInfo.value?.givenTickets
 	},
 	{
-		title: 'Завершено операций',
+		title: `${t('Completed operations')}`,
 		value: monitoringInfo.value?.servedTaskCount
 	},
 	{
-		title: 'Потеряно билетов',
+		title: `${t('Lost tickets')}`,
 		value: monitoringInfo.value?.missingClients
 	},
 	{
-		title: 'Ожидающих клиентов ',
+		title: `${t('Waiting clients')}`,
 		value: monitoringInfo.value?.waitingClientsCount
 	},
 	{
-		title: 'Среднее время ожидания',
+		title: `${t('Average waiting time')}`,
 		value: monitoringInfo.value?.avgWaitTime
 	},
 	{
-		title: 'Среднее время обслуживания',
+		title: `${t('Average service time')}`,
 		value: monitoringInfo.value?.avgAdminTime
 	},
 	{
-		title: 'Клиентов ожидающих более 30 мин.',
+		title: `${t('Clients waiting more than 30 min')}`,
 		value: monitoringInfo.value?.waitingClientsMoreX
 	},
 	{
-		title: 'Уровень обслуживания (%)',
+		title: `${t('Service level (%)')}`,
 		value: monitoringInfo.value?.serviceLevelPerc
 	}
 ])
@@ -112,7 +116,7 @@ watch(selectedBranches, async () => {
 
 <template>
 	<div class="pt-3 px-6">
-		<Heading title="Мониторинг" />
+		<Heading :title="$t('Monitoring')" />
 		<!-- Select -->
 		<div class="mb-6 max-w-80">
 			<BranchesSelect
@@ -124,7 +128,7 @@ watch(selectedBranches, async () => {
 
 		<!-- If not selectedBranches -->
 		<h1 class="font-bold text-xl text-center" v-if="!selectedBranches?.length">
-			Выберите филиалы для отображения информации
+			{{ $t('Select branches to display information') }}
 		</h1>
 		<!-- If not selectedBranches -->
 
@@ -158,14 +162,18 @@ watch(selectedBranches, async () => {
 			</div>
 
 			<!-- DeskInfo -->
-			<h2 class="font-bold text-center text-xl mb-6">Информация о пультах</h2>
+			<h2 class="font-bold text-center text-xl mb-6">
+				{{ $t('Information about remote controls') }}
+			</h2>
 			<div class="mb-10 border rounded-2xl">
 				<DeskInfoTable :deskInfo="monitoringInfo?.deskInfo || []" />
 			</div>
 			<!-- DeskInfo -->
 
 			<!-- ServiceInfo -->
-			<h2 class="font-bold text-center text-xl mb-6">Информация по услугам</h2>
+			<h2 class="font-bold text-center text-xl mb-6">
+				{{ $t('Information on services') }}
+			</h2>
 			<div class="mb-10 border rounded-2xl">
 				<ServiceInfo :serviceInfo="monitoringInfo?.serviceInfo || []" />
 			</div>
@@ -173,7 +181,7 @@ watch(selectedBranches, async () => {
 
 			<!-- ServiceWaitTimeInfo -->
 			<h2 class="font-bold text-center text-xl mb-6">
-				Время ожидания по услугам
+				{{ $t('Waiting time by service') }}
 			</h2>
 			<div class="mb-10">
 				<ServiceWaitTimeInfo
@@ -183,7 +191,9 @@ watch(selectedBranches, async () => {
 			<!-- ServiceWaitTimeInfo -->
 
 			<!-- DeskInfo -->
-			<h2 class="font-bold text-center text-xl mb-6">Ожидающие клиенты</h2>
+			<h2 class="font-bold text-center text-xl mb-6">
+				{{ $t('Waiting clients') }}
+			</h2>
 			<div class="mb-10 border rounded-2xl">
 				<WaitingClients :deskInfo="monitoringInfo?.deskInfo || []" />
 			</div>

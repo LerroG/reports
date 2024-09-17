@@ -7,6 +7,9 @@ import {
 	TableHeader,
 	TableRow
 } from '@/components/ui/table'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 import { IDeskInfo } from '@/types/monitoring.interface'
 import Pagination from '../Pagination.vue'
@@ -16,16 +19,16 @@ const props = defineProps<{ deskInfo: IDeskInfo[] }>()
 const page = ref(1)
 const pageSize = ref('10')
 
-const tableHeaders = [
-	'Оператор',
-	'Номер пульта',
-	'Название пульта',
-	'Услуга',
-	'Название группы услуг',
-	'Номер билета',
-	'Состояние',
-	'Продолжительность состояния'
-]
+const tableHeaders = computed(() => [
+	t('Operator'),
+	t('Remote control number'),
+	t('Remote control name'),
+	t('Service'),
+	t('Service group name'),
+	t('Ticket number'),
+	t('State'),
+	t('Duration of the condition')
+])
 
 const paginatedData = computed(() => {
 	const start = (page.value - 1) * Number(pageSize.value)

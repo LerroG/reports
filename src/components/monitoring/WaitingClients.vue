@@ -11,20 +11,22 @@ import {
 import { IWaitingClients } from '@/types/monitoring.interface'
 import Pagination from '../Pagination.vue'
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const props = defineProps<{ waitingClients?: IWaitingClients[] }>()
 const page = ref(1)
 const pageSize = ref('10')
 
-const tableHeaders = [
-	'Услуга',
-	'Номер билета',
-	'Тип билета',
-	'Время прибытия',
-	'Время ожидания',
-	'Количество вызовов',
-	'Доступные пульты'
-]
+const tableHeaders = computed(() => [
+	t('Service'),
+	t('Ticket number'),
+	t('Ticket type'),
+	t('Arrival time'),
+	t('Waiting time'),
+	t('Number of calls'),
+	t('Available remotes')
+])
 
 const paginatedData = computed(() => {
 	const start = (page.value - 1) * Number(pageSize.value)
@@ -69,7 +71,7 @@ const paginatedData = computed(() => {
 				</template>
 				<TableRow v-else
 					><TableCell colspan="7" class="text-center text-lg">
-						Ожидающих клиентов нет
+						{{ $t('No clients waiting') }}
 					</TableCell>
 				</TableRow>
 			</TableBody>

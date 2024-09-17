@@ -11,6 +11,9 @@ import {
 import { IServiceInfo } from '@/types/monitoring.interface'
 import Pagination from '../Pagination.vue'
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const props = defineProps<{ serviceInfo: IServiceInfo[] }>()
 const page = ref(1)
@@ -29,12 +32,12 @@ const paginatedData = computed(() => {
 		.slice(start, end)
 })
 
-const tableHeaders = [
-	'Услуга',
-	'Количество операций',
-	'Среднее время ожидания',
-	'Среднее время обслуживания'
-]
+const tableHeaders = computed(() => [
+	t('Service'),
+	t('Number of operations'),
+	t('Average waiting time'),
+	t('Average service time')
+])
 </script>
 
 <template>

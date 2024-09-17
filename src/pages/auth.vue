@@ -33,7 +33,7 @@ const handleSubmit = async () => {
 		<div class="flex justify-end mb-10">
 			<ChangeLanguage />
 		</div>
-		<div class="font-bold text-5xl mb-7 ml-11">Вход</div>
+		<div class="font-bold text-5xl mb-7 ml-11">{{ $t('Entrance') }}</div>
 		<form
 			@submit.prevent="handleSubmit"
 			class="flex flex-col items-center justify-center space-y-5"
@@ -42,7 +42,7 @@ const handleSubmit = async () => {
 				type="text"
 				id="username"
 				required
-				placeholder="Имя пользователя"
+				:placeholder="`${$t('Username')}`"
 				class="w-4/5"
 				v-model="form.Username"
 			/>
@@ -50,12 +50,12 @@ const handleSubmit = async () => {
 				type="password"
 				id="password"
 				required
-				placeholder="Пароль"
+				:placeholder="`${$t('Password')}`"
 				class="w-4/5"
 				v-model="form.Password"
 			/>
 			<Button :disabled="loading" type="submit" class="w-1/3">{{
-				$t('login')
+				$t('Login')
 			}}</Button>
 		</form>
 	</div>

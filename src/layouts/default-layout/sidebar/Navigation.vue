@@ -8,34 +8,38 @@ import {
 	SquareActivity,
 	Ticket
 } from 'lucide-vue-next'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const routes: IMenuItem[] = [
+const { t } = useI18n()
+
+const routes = computed<IMenuItem[]>(() => [
 	{
 		icon: SquareActivity,
 		link: ROUTE_URL.monitoring(),
-		value: 'Мониторинг'
+		value: `${t('Monitoring')}`
 	},
 	{
 		icon: Headset,
 		link: ROUTE_URL.operators(),
-		value: 'Отчеты по операторам'
+		value: `${t('Operator reports')}`
 	},
 	{
 		icon: Handshake,
 		link: ROUTE_URL.services(),
-		value: 'Отчеты по услугам'
+		value: `${t('Service reports')}`
 	},
 	{
 		icon: Ticket,
 		link: ROUTE_URL.tickets(),
-		value: 'Отчеты по билетам'
+		value: `${t('Ticket reports')}`
 	},
 	{
 		icon: Building,
 		link: ROUTE_URL.branches(),
-		value: 'Отчеты по филиалам'
+		value: `${t('Branch reports')}`
 	}
-]
+])
 </script>
 
 <template>
