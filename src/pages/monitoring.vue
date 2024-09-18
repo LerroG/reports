@@ -190,14 +190,14 @@ watch(selectedBranches, async () => {
 			</div>
 			<!-- ServiceWaitTimeInfo -->
 
-			<!-- DeskInfo -->
+			<!-- WaitingClients -->
 			<h2 class="font-bold text-center text-xl mb-6">
 				{{ $t('Waiting clients') }}
 			</h2>
 			<div class="mb-10 border rounded-2xl">
-				<WaitingClients :deskInfo="monitoringInfo?.deskInfo || []" />
+				<WaitingClients :waitingClients="monitoringInfo?.waitingClients || []" />
 			</div>
-			<!-- DeskInfo -->
+			<!-- WaitingClients -->
 		</div>
 	</div>
 </template>
