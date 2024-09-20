@@ -41,33 +41,52 @@ const tableHeaders = computed(() => [
 </script>
 
 <template>
-	<Table>
-		<TableHeader>
-			<TableRow>
-				<TableHead
-					class="text-center max-w-[100px]"
-					v-for="item in tableHeaders"
-				>
-					{{ item }}
-				</TableHead>
-			</TableRow>
-		</TableHeader>
-		<TableBody>
-			<TableRow v-for="(service, idx) in paginatedData" :key="idx">
-				<TableCell class="text-center" v-for="item in service">
-					{{ item }}
-				</TableCell>
-			</TableRow>
-		</TableBody>
-	</Table>
 	<div
-		v-if="serviceInfo.length > Number(pageSize)"
-		class="flex justify-center my-4"
+		class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-6 pt-4 pb-6 mb-10 w-1/2"
 	>
-		<Pagination
-			:pagination-info="serviceInfo"
-			v-model:pagination-page="page"
-			v-model:pagination-page-size="pageSize"
-		/>
+		<h2 class="font-bold text-center text-xl mb-6">
+			{{ $t('Information on services') }}
+		</h2>
+		<div class="border rounded-2xl">
+			<Table>
+				<TableHeader>
+					<TableRow class="table_header bg-sky-200 hover:bg-sky-300">
+						<TableHead
+							class="text-center font-bold text-black max-w-36"
+							v-for="item in tableHeaders"
+						>
+							{{ item }}
+						</TableHead>
+					</TableRow>
+				</TableHeader>
+				<TableBody>
+					<TableRow v-for="(service, idx) in paginatedData" :key="idx">
+						<TableCell class="text-center" v-for="item in service">
+							{{ item }}
+						</TableCell>
+					</TableRow>
+				</TableBody>
+			</Table>
+		</div>
+		<div
+			v-if="serviceInfo.length > Number(pageSize)"
+			class="flex justify-center mt-4"
+		>
+			<Pagination
+				:pagination-info="serviceInfo"
+				v-model:pagination-page="page"
+				v-model:pagination-page-size="pageSize"
+			/>
+		</div>
 	</div>
 </template>
+
+<style scoped>
+.table_header :first-child {
+	@apply rounded-tl-lg;
+}
+
+.table_header :last-child {
+	@apply rounded-tr-lg;
+}
+</style>

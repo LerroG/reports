@@ -7,7 +7,6 @@ import { useGetBranches } from '@/queries/branches/useGetBranches'
 import { useRoute, useRouter } from 'vue-router'
 import { RouteNamesEnum } from '@/router/router.types'
 import { useGetMonitoringInfo } from '@/queries/monitoring/useGetMonitoringInfo'
-import InfoCell from '@/components/monitoring/InfoCell.vue'
 import DeskInfoTable from '@/components/monitoring/DeskInfoTable.vue'
 import { useQueryClient } from '@tanstack/vue-query'
 import ServiceInfo from '@/components/monitoring/ServiceInfo.vue'
@@ -16,9 +15,7 @@ import ServiceWaitTimeInfo from '@/components/monitoring/ServiceWaitTimeInfo.vue
 import WaitingClients from '@/components/monitoring/WaitingClients.vue'
 import { debounce } from 'lodash'
 import { VueSpinner } from 'vue3-spinners'
-import { useI18n } from 'vue-i18n'
-
-const { t } = useI18n()
+import BaseInfoGroup from '@/components/monitoring/BaseInfoGroup.vue'
 
 const router = useRouter()
 const route = useRoute()
@@ -29,41 +26,6 @@ const selectedBranches = ref<IBranch[]>()
 const { branchesList, isBranchesListSuccess } = useGetBranches()
 const { monitoringInfo, refetchMonitoringInfo, isMonitoringInfoPending } =
 	useGetMonitoringInfo()
-
-const cellsInfo = computed(() => [
-	{
-		title: `${t('Tickets issued')}`,
-		value: monitoringInfo.value?.givenTickets
-	},
-	{
-		title: `${t('Completed operations')}`,
-		value: monitoringInfo.value?.servedTaskCount
-	},
-	{
-		title: `${t('Lost tickets')}`,
-		value: monitoringInfo.value?.missingClients
-	},
-	{
-		title: `${t('Waiting clients')}`,
-		value: monitoringInfo.value?.waitingClientsCount
-	},
-	{
-		title: `${t('Average waiting time')}`,
-		value: monitoringInfo.value?.avgWaitTime
-	},
-	{
-		title: `${t('Average service time')}`,
-		value: monitoringInfo.value?.avgAdminTime
-	},
-	{
-		title: `${t('Clients waiting more than 30 min')}`,
-		value: monitoringInfo.value?.waitingClientsMoreX
-	},
-	{
-		title: `${t('Service level (%)')}`,
-		value: monitoringInfo.value?.serviceLevelPerc
-	}
-])
 
 // Methods
 // Установка в селект данных если есть ID в роуте
@@ -116,15 +78,15 @@ watch(selectedBranches, async () => {
 
 <template>
 	<div class="pt-3 px-6">
-		<Heading :title="$t('Monitoring')" />
 		<!-- Select -->
-		<div class="mb-6 max-w-80">
+		<div class="max-w-80 mb-6">
 			<BranchesSelect
 				:branches-group="branchesList || []"
 				v-model="selectedBranches"
 			/>
 		</div>
 		<!-- Select -->
+		<Heading class="mb-6" :title="$t('Monitoring')" />
 
 		<!-- If not selectedBranches -->
 		<h1 class="font-bold text-xl text-center" v-if="!selectedBranches?.length">
@@ -132,72 +94,44 @@ watch(selectedBranches, async () => {
 		</h1>
 		<!-- If not selectedBranches -->
 
-		<!-- If not selectedBranches -->
+		<!-- Loading -->
 		<div
 			class="flex justify-center mt-20"
 			v-else-if="loading || isMonitoringInfoPending"
 		>
 			<VueSpinner size="50" color="#3b82f6" />
 		</div>
-		<!-- If not selectedBranches -->
+		<!-- Loading -->
 
-		<div v-else>
-			<div class="flex mb-8 w-full">
-				<!-- Cells -->
-				<div class="w-1/2">
-					<div class="grid grid-cols-3 gap-4">
-						<InfoCell
-							v-for="cellInfo in cellsInfo"
-							:key="cellInfo.title"
-							:info="cellInfo"
-						/>
-					</div>
-					<!-- Cells -->
-				</div>
-				<!-- Chart -->
-				<div class="w-1/2">
-					<Chart :service-info-graph="monitoringInfo?.serviceInfoGraph || []" />
-				</div>
-				<!-- Chart -->
-			</div>
+		<div v-else class="flex flex-col items-center">
+			<!-- Cells -->
+			<BaseInfoGroup :cells-info="monitoringInfo" />
+			<!-- Cells -->
 
-			<!-- DeskInfo -->
-			<h2 class="font-bold text-center text-xl mb-6">
-				{{ $t('Information about remote controls') }}
-			</h2>
-			<div class="mb-10 border rounded-2xl">
-				<DeskInfoTable :deskInfo="monitoringInfo?.deskInfo || []" />
-			</div>
-			<!-- DeskInfo -->
-
-			<!-- ServiceInfo -->
-			<h2 class="font-bold text-center text-xl mb-6">
-				{{ $t('Information on services') }}
-			</h2>
-			<div class="mb-10 border rounded-2xl">
+			<div class="flex gap-4 w-full">
+				<!-- ServiceInfo -->
 				<ServiceInfo :serviceInfo="monitoringInfo?.serviceInfo || []" />
-			</div>
-			<!-- ServiceInfo -->
+				<!-- ServiceInfo -->
 
-			<!-- ServiceWaitTimeInfo -->
-			<h2 class="font-bold text-center text-xl mb-6">
-				{{ $t('Waiting time by service') }}
-			</h2>
-			<div class="mb-10">
-				<ServiceWaitTimeInfo
-					:serviceWaitTimeInfo="monitoringInfo?.serviceWaitTimeInfo"
-				/>
+				<!-- Chart -->
+				<Chart :service-info-graph="monitoringInfo?.serviceInfoGraph || []" />
 			</div>
-			<!-- ServiceWaitTimeInfo -->
+			<!-- Chart -->
+
+			<!-- DeskInfo -->
+
+			<DeskInfoTable :deskInfo="monitoringInfo?.deskInfo || []" />
+			<!-- DeskInfo -->
 
 			<!-- WaitingClients -->
-			<h2 class="font-bold text-center text-xl mb-6">
-				{{ $t('Waiting clients') }}
-			</h2>
-			<div class="mb-10 border rounded-2xl">
-				<WaitingClients :waitingClients="monitoringInfo?.waitingClients || []" />
-			</div>
+			<WaitingClients :waitingClients="monitoringInfo?.waitingClients || []" />
 			<!-- WaitingClients -->
+
+			<!-- ServiceWaitTimeInfo -->
+			<ServiceWaitTimeInfo
+				:serviceWaitTimeInfo="monitoringInfo?.serviceWaitTimeInfo"
+			/>
+			<!-- ServiceWaitTimeInfo -->
 		</div>
 	</div>
 </template>

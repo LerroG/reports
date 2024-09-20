@@ -11,6 +11,7 @@ const selectedBranches = defineModel<IBranch[]>()
 		multiple
 		deselect-label=""
 		deselectGroupLabel=""
+		:searchable="false"
 		select-label=""
 		selectedLabel=""
 		selectGroupLabel=""

@@ -65,34 +65,48 @@ const generalData = computed(() => {
 </script>
 
 <template>
-	<div>
-		<div class="border rounded-2xl mb-6">
-			<Table>
-				<TableHeader>
-					<TableRow>
-						<TableHead
-							class="text-center max-w-[100px]"
-							v-for="item in tableHeaders"
-						>
-							{{ item }}
-						</TableHead>
-					</TableRow>
-				</TableHeader>
-				<TableBody>
-					<TableRow v-for="(service, idx) in paginatedData" :key="idx">
-						<TableCell class="text-center" v-for="item in service">
-							{{ item }}
-						</TableCell>
-					</TableRow>
-				</TableBody>
-			</Table>
-
+	<div class="mb-10 w-9/12">
+		<div class="mb-10">
+			<h2 class="font-bold text-center text-xl mb-6">
+				{{ $t('General information about remote controls') }}
+			</h2>
+			<div class="flex gap-3">
+				<InfoCell v-for="(info, idx) in generalData" :key="idx" :info="info" />
+			</div>
+		</div>
+		<div
+			class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-4 pt-4 pb-6 mb-6"
+		>
+			<h2 class="font-bold text-center text-xl mb-6">
+				{{ $t('Waiting time by service') }}
+			</h2>
+			<div class="border rounded-2xl">
+				<Table>
+					<TableHeader>
+						<TableRow class="table_header bg-sky-200 hover:bg-sky-300">
+							<TableHead
+								class="text-center font-bold text-black max-w-48"
+								v-for="item in tableHeaders"
+							>
+								{{ item }}
+							</TableHead>
+						</TableRow>
+					</TableHeader>
+					<TableBody>
+						<TableRow v-for="(service, idx) in paginatedData" :key="idx">
+							<TableCell class="text-center" v-for="item in service">
+								{{ item }}
+							</TableCell>
+						</TableRow>
+					</TableBody>
+				</Table>
+			</div>
 			<div
 				v-if="
 					serviceWaitTimeInfo &&
 					serviceWaitTimeInfo.serviceWaitInfo.length > Number(pageSize)
 				"
-				class="flex justify-center my-4"
+				class="flex justify-center mt-4"
 			>
 				<Pagination
 					:pagination-info="serviceWaitTimeInfo.serviceWaitInfo"
@@ -101,11 +115,15 @@ const generalData = computed(() => {
 				/>
 			</div>
 		</div>
-		<h2 class="font-bold text-center text-xl mb-6">
-			{{ $t('General information about remote controls') }}
-		</h2>
-		<div class="grid grid-cols-9 gap-4">
-			<InfoCell v-for="(info, idx) in generalData" :key="idx" :info="info" />
-		</div>
 	</div>
 </template>
+
+<style scoped>
+.table_header :first-child {
+	@apply rounded-tl-lg;
+}
+
+.table_header :last-child {
+	@apply rounded-tr-lg;
+}
+</style>

@@ -46,40 +46,47 @@ const paginatedData = computed(() => {
 </script>
 
 <template>
-	<div>
-		<Table>
-			<TableHeader>
-				<TableRow>
-					<TableHead
-						class="text-center max-w-[100px]"
-						v-for="item in tableHeaders"
-					>
-						{{ item }}
-					</TableHead>
-				</TableRow>
-			</TableHeader>
-			<TableBody>
-				<template v-if="paginatedData?.length">
-					<TableRow v-for="(client, idx) in paginatedData" :key="idx">
-						<TableCell
-							class="text-center max-w-60 text-wrap"
-							v-for="item in client"
+	<div
+		class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-6 pt-4 pb-6 mb-10 w-9/12"
+	>
+		<h2 class="font-bold text-center text-xl mb-6">
+			{{ $t('Waiting clients') }}
+		</h2>
+		<div class="border rounded-2xl">
+			<Table>
+				<TableHeader>
+					<TableRow class="table_header bg-sky-200 hover:bg-sky-300">
+						<TableHead
+							class="text-center font-bold text-black max-w-44"
+							v-for="item in tableHeaders"
 						>
 							{{ item }}
+						</TableHead>
+					</TableRow>
+				</TableHeader>
+				<TableBody>
+					<template v-if="paginatedData?.length">
+						<TableRow v-for="(client, idx) in paginatedData" :key="idx">
+							<TableCell
+								class="text-center max-w-60 text-wrap"
+								v-for="item in client"
+							>
+								{{ item }}
+							</TableCell>
+						</TableRow>
+					</template>
+					<TableRow v-else>
+						<TableCell colspan="7" class="text-center text-lg">
+							{{ $t('No clients waiting') }}
 						</TableCell>
 					</TableRow>
-				</template>
-				<TableRow v-else>
-					<TableCell colspan="7" class="text-center text-lg">
-						{{ $t('No clients waiting') }}
-					</TableCell>
-				</TableRow>
-			</TableBody>
-		</Table>
+				</TableBody>
+			</Table>
+		</div>
 
 		<div
 			v-if="waitingClients && waitingClients.length > Number(pageSize)"
-			class="flex justify-center my-4"
+			class="flex justify-center mt-4"
 		>
 			<Pagination
 				:pagination-info="waitingClients"
@@ -89,3 +96,13 @@ const paginatedData = computed(() => {
 		</div>
 	</div>
 </template>
+
+<style scoped>
+.table_header :first-child {
+	@apply rounded-tl-lg;
+}
+
+.table_header :last-child {
+	@apply rounded-tr-lg;
+}
+</style>

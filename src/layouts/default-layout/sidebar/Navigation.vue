@@ -43,12 +43,12 @@ const routes = computed<IMenuItem[]>(() => [
 </script>
 
 <template>
-	<nav class="flex flex-col w-full space-y-3">
+	<nav class="flex flex-col w-full space-y-2">
 		<RouterLink
 			:to="route.link"
 			v-for="route in routes"
 			:key="route.link"
-			class="flex items-center gap-x-3 text-slate-500 font-medium py-2.5 rounded-lg hover:bg-blue-200/20 hover:text-blue-500 hover:drop-shadow-sm bg-transparent transition-all duration-200"
+			class="flex items-center gap-x-3 text-slate-500 font-medium py-2.5 rounded-lg hover:bg-sky-200/20 hover:text-sky-500 hover:drop-shadow-sm bg-transparent transition-all duration-200"
 			active-class="active_class"
 		>
 			<component :is="route.icon" />
@@ -59,6 +59,6 @@ const routes = computed<IMenuItem[]>(() => [
 
 <style scoped>
 .active_class {
-	@apply text-blue-500 bg-blue-200/20 hover:bg-blue-200/20 hover:text-blue-500;
+	@apply text-sky-500 bg-sky-200/20 hover:bg-sky-200/20 hover:text-sky-500;
 }
 </style>

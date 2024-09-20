@@ -4,7 +4,7 @@ import Navigation from './Navigation.vue'
 
 <template>
 	<aside
-		class="flex h-full w-64 flex-col fixed inset-y-0 z-[50] bg-gray-100 border-r overflow-y-auto pt-4 px-5"
+		class="h-screen w-64 fixed top-0 left-0 bg-white shadow-sm border-r overflow-y-auto pt-4 px-2"
 	>
 		<Navigation />
 	</aside>
