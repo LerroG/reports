@@ -29,12 +29,16 @@ const data = computed(() => props.serviceInfoGraph.map(data => data.taskCount))
 </script>
 
 <template>
-	<div class="w-1/2 bg-white rounded-lg shadow-md py-4 flex items-center mb-10">
-		<div class="w-7/12 flex flex-col items-center justify-center">
+	<div
+		class="2xl:w-1/2 w-full bg-white rounded-lg shadow-md py-4 flex max-sm:flex-col max-sm:gap-4 sm:px-6 gap-4 items-center mb-10"
+	>
+		<div
+			class="sm:w-7/12 max-sm:px-6 w-full flex flex-col items-center justify-center"
+		>
 			<div class="font-bold text-center text-xl mb-6">
 				{{ $t('Tickets issued by service') }}
 			</div>
-			<div class="rounded-xl border">
+			<div class="rounded-xl border overflow-auto w-full">
 				<Table>
 					<TableHeader>
 						<TableRow class="table_header bg-sky-200 hover:bg-sky-300">
@@ -56,7 +60,7 @@ const data = computed(() => props.serviceInfoGraph.map(data => data.taskCount))
 				</Table>
 			</div>
 		</div>
-		<div class="flex justify-center items-center w-5/12 h-5/6">
+		<div class="flex justify-center items-center lg:w-5/12 h-5/6">
 			<PieChart :labels="labels" :data="data" />
 		</div>
 	</div>

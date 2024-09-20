@@ -6,14 +6,10 @@ import Header from './default-layout/header/Header.vue'
 <template>
 	<div class="flex flex-col min-h-screen bg-gray-100">
 		<Header />
-		<div class="flex flex-1">
-			<Sidebar />
+		<Sidebar />
 
-			<main class="ml-64 mt-3 flex-1">
-				<slot />
-			</main>
-		</div>
+		<main class="xl:ml-64 mt-3">
+			<slot />
+		</main>
 	</div>
 </template>
-
-<style scoped></style>

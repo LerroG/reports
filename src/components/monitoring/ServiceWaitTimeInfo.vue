@@ -65,22 +65,14 @@ const generalData = computed(() => {
 </script>
 
 <template>
-	<div class="mb-10 w-9/12">
-		<div class="mb-10">
-			<h2 class="font-bold text-center text-xl mb-6">
-				{{ $t('General information about remote controls') }}
-			</h2>
-			<div class="flex gap-3">
-				<InfoCell v-for="(info, idx) in generalData" :key="idx" :info="info" />
-			</div>
-		</div>
+	<div class="mb-10 w-full 2xl:w-9/12">
 		<div
-			class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-4 pt-4 pb-6 mb-6"
+			class="flex flex-col rounded-lg justify-center shadow-md items-center w-full bg-white px-4 pt-4 pb-6 mb-6"
 		>
 			<h2 class="font-bold text-center text-xl mb-6">
 				{{ $t('Waiting time by service') }}
 			</h2>
-			<div class="border rounded-2xl">
+			<div class="border rounded-2xl overflow-auto w-full">
 				<Table>
 					<TableHeader>
 						<TableRow class="table_header bg-sky-200 hover:bg-sky-300">
@@ -113,6 +105,14 @@ const generalData = computed(() => {
 					v-model:pagination-page="page"
 					v-model:pagination-page-size="pageSize"
 				/>
+			</div>
+		</div>
+		<div class="mb-10">
+			<h2 class="font-bold text-center text-xl mb-6">
+				{{ $t('General information about remote controls') }}
+			</h2>
+			<div class="md:grid md:grid-cols-5 grid grid-cols-2 2xl:flex gap-3">
+				<InfoCell v-for="(info, idx) in generalData" :key="idx" :info="info" />
 			</div>
 		</div>
 	</div>

@@ -44,16 +44,18 @@ const cellsInfo = computed(() => [
 </script>
 
 <template>
-	<div class="flex justify-between gap-2 mb-10">
+	<div
+		class="grid grid-cols-2 md:grid md:grid-cols-4 2xl:flex 2xl:justify-between gap-2 mb-10"
+	>
 		<div
 			v-for="cell in cellsInfo"
 			:key="cell.title"
 			class="bg-white rounded-lg shadow-md flex flex-col py-1 px-2 min-h-24"
 		>
-			<div class="text-center font-bold text-sky-600 text-3xl h-1/2">
+			<div class="text-center font-bold text-sky-600 text-3xl">
 				{{ cell.value }}
 			</div>
-			<div class="text-center leading-5 h-1/2">{{ cell.title }}</div>
+			<div class="text-center leading-5">{{ cell.title }}</div>
 		</div>
 	</div>
 </template>

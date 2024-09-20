@@ -77,9 +77,9 @@ watch(selectedBranches, async () => {
 </script>
 
 <template>
-	<div class="pt-3 px-6">
+	<div class="pt-3 px-3 sm:px-6">
 		<!-- Select -->
-		<div class="max-w-80 mb-6">
+		<div class="max-w-96 mb-6">
 			<BranchesSelect
 				:branches-group="branchesList || []"
 				v-model="selectedBranches"
@@ -108,7 +108,7 @@ watch(selectedBranches, async () => {
 			<BaseInfoGroup :cells-info="monitoringInfo" />
 			<!-- Cells -->
 
-			<div class="flex gap-4 w-full">
+			<div class="2xl:flex gap-4 w-full">
 				<!-- ServiceInfo -->
 				<ServiceInfo :serviceInfo="monitoringInfo?.serviceInfo || []" />
 				<!-- ServiceInfo -->

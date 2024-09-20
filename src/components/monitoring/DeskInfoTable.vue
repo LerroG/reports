@@ -50,12 +50,12 @@ const paginatedData = computed(() => {
 
 <template>
 	<div
-		class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-6 pt-4 pb-6 mb-10 w-9/12"
+		class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-6 pt-4 pb-6 mb-10 w-full 2xl:w-9/12"
 	>
 		<h2 class="font-bold text-center text-xl mb-6">
 			{{ $t('Information about remote controls') }}
 		</h2>
-		<div class="border rounded-2xl">
+		<div class="border rounded-2xl overflow-auto w-full">
 			<Table>
 				<TableHeader>
 					<TableRow class="table_header bg-sky-200 hover:bg-sky-300">
