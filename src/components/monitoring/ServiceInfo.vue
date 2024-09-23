@@ -17,7 +17,7 @@ const { t } = useI18n()
 
 const props = defineProps<{ serviceInfo: IServiceInfo[] }>()
 const page = ref(1)
-const pageSize = ref('10')
+const pageSize = ref('5')
 
 const paginatedData = computed(() => {
 	const start = (page.value - 1) * Number(pageSize.value)
@@ -69,7 +69,6 @@ const tableHeaders = computed(() => [
 			</Table>
 		</div>
 		<div
-			v-if="serviceInfo.length > Number(pageSize)"
 			class="flex justify-center mt-4"
 		>
 			<Pagination

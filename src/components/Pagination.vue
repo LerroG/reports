@@ -26,7 +26,7 @@ const pageSizeVariants = ['5', '10', '20']
 </script>
 
 <template>
-	<div class="flex justify-center gap-6">
+	<div class="flex flex-col gap-3 justify-center items-center 2xl:gap-x-6 2xl:flex-row flex-wrap">
 		<Pagination
 			v-slot="{ page }"
 			:total="paginationInfo.length"
@@ -37,8 +37,8 @@ const pageSizeVariants = ['5', '10', '20']
 			:items-per-page="Number(paginationPageSize)"
 		>
 			<PaginationList v-slot="{ items }" class="flex items-center gap-1">
-				<PaginationFirst />
-				<PaginationPrev />
+				<PaginationFirst class="max-sm:w-8 max-sm:h-8" />
+				<PaginationPrev class="max-sm:w-8 max-sm:h-8" />
 
 				<template v-for="(item, index) in items">
 					<PaginationListItem
@@ -48,7 +48,7 @@ const pageSizeVariants = ['5', '10', '20']
 						as-child
 					>
 						<Button
-							class="w-10 h-10 p-0"
+							class="w-10 h-10 p-0 max-sm:w-8 max-sm:h-8"
 							:variant="item.value === page ? 'default' : 'outline'"
 						>
 							{{ item.value }}
@@ -57,14 +57,14 @@ const pageSizeVariants = ['5', '10', '20']
 					<PaginationEllipsis v-else :key="item.type" :index="index" />
 				</template>
 
-				<PaginationNext />
-				<PaginationLast />
+				<PaginationNext class="max-sm:w-8 max-sm:h-8" />
+				<PaginationLast class="max-sm:w-8 max-sm:h-8" />
 			</PaginationList>
 		</Pagination>
 		<div class="flex items-center gap-2">
-			<span class="text-nowrap">Показывать на странице:</span>
+			<span class="text-nowrap">{{ $t('Show on page') }}:</span>
 			<Select v-model="paginationPageSize">
-				<SelectTrigger class="w-16">
+				<SelectTrigger class="w-16 max-sm:h-8">
 					<SelectValue />
 				</SelectTrigger>
 				<SelectContent>
@@ -77,7 +77,7 @@ const pageSizeVariants = ['5', '10', '20']
 					</SelectItem>
 				</SelectContent>
 			</Select>
-			<span>записей</span>
+			<span>{{ $t('Entries') }}</span>
 		</div>
 	</div>
 </template>
