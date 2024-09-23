@@ -26,7 +26,7 @@ const pageSizeVariants = ['5', '10', '20']
 </script>
 
 <template>
-	<div class="flex flex-col gap-3 justify-center items-center 2xl:gap-x-6 2xl:flex-row flex-wrap">
+	<div class="flex flex-col gap-3 justify-center items-center 2xl:gap-x-6 md:flex-row flex-wrap">
 		<Pagination
 			v-slot="{ page }"
 			:total="paginationInfo.length"

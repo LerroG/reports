@@ -108,14 +108,12 @@ watch(selectedBranches, async () => {
 			<BaseInfoGroup :cells-info="monitoringInfo" />
 			<!-- Cells -->
 
-			<div class="2xl:flex gap-4 w-full">
-				<!-- ServiceInfo -->
-				<ServiceInfo :serviceInfo="monitoringInfo?.serviceInfo || []" />
-				<!-- ServiceInfo -->
+			<!-- ServiceInfo -->
+			<ServiceInfo :serviceInfo="monitoringInfo?.serviceInfo || []" />
+			<!-- ServiceInfo -->
 
-				<!-- Chart -->
-				<Chart :service-info-graph="monitoringInfo?.serviceInfoGraph || []" />
-			</div>
+			<!-- Chart -->
+			<Chart :service-info-graph="monitoringInfo?.serviceInfoGraph || []" />
 			<!-- Chart -->
 
 			<!-- DeskInfo -->

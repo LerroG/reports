@@ -45,50 +45,52 @@ const data = computed(() => props.serviceInfoGraph.map(data => data.taskCount))
 </script>
 
 <template>
-	<div class="2xl:w-1/2 w-full bg-white rounded-lg shadow-md py-4 mb-10">
-		<div class="font-bold text-center text-xl mb-6">
-			{{ $t('Tickets issued by service') }}
-		</div>
-		<div class="flex max-sm:flex-col max-sm:gap-4 sm:px-6 gap-4">
-			<div
-				class="sm:w-7/12 max-sm:px-6 w-full flex flex-col items-center justify-center"
-			>
-				<div class="rounded-xl border overflow-auto w-full">
-					<Table>
-						<TableHeader>
-							<TableRow class="table_header bg-sky-200 hover:bg-sky-300">
-								<TableHead
-									class="text-center font-bold text-black max-w-36"
-									v-for="item in serviceTitles"
-								>
-									{{ item }}
-								</TableHead>
-							</TableRow>
-						</TableHeader>
-						<TableBody>
-							<TableRow v-for="(item, idx) in paginatedData" :key="idx">
-								<TableCell class="text-center" v-for="itemInner in item">
-									{{ itemInner }}
-								</TableCell>
-							</TableRow>
-						</TableBody>
-					</Table>
-				</div>
-				<div
-					v-if="serviceInfoGraph.length > Number(pageSize)"
-					class="flex justify-center mt-4"
-				>
-					<Pagination
-						:pagination-info="serviceInfoGraph"
-						v-model:pagination-page="page"
-						v-model:pagination-page-size="pageSize"
-					/>
-				</div>
-			</div>
-			<div class="font-bold text-center text-xl sm:hidden mt-3">
+	<div class="w-full flex max-md:flex-col gap-4 2xl:flex">
+		<div
+			class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-6 pt-4 pb-6 2xl:mb-10 mb-6 w-full 2xl:w-1/2"
+		>
+			<h2 class="font-bold text-center text-xl mb-6">
 				{{ $t('Tickets issued by service') }}
+			</h2>
+			<div class="border rounded-2xl overflow-auto w-full">
+				<Table>
+					<TableHeader>
+						<TableRow class="table_header bg-sky-200 hover:bg-sky-300">
+							<TableHead
+								class="text-center font-bold text-black max-w-36"
+								v-for="item in serviceTitles"
+							>
+								{{ item }}
+							</TableHead>
+						</TableRow>
+					</TableHeader>
+					<TableBody>
+						<TableRow v-for="(item, idx) in paginatedData" :key="idx">
+							<TableCell class="text-center" v-for="itemInner in item">
+								{{ itemInner }}
+							</TableCell>
+						</TableRow>
+					</TableBody>
+				</Table>
 			</div>
-			<div class="flex justify-center items-center lg:w-5/12">
+			<div
+				v-if="serviceInfoGraph.length > Number(pageSize)"
+				class="flex justify-center mt-4"
+			>
+				<Pagination
+					:pagination-info="serviceInfoGraph"
+					v-model:pagination-page="page"
+					v-model:pagination-page-size="pageSize"
+				/>
+			</div>
+		</div>
+		<div
+			class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-6 pt-4 pb-6 mb-10 w-full 2xl:w-1/2"
+		>
+			<h2 class="font-bold text-center text-xl mb-6">
+				{{ $t('Tickets issued by service') }}
+			</h2>
+			<div class="w-full h-full">
 				<PieChart :labels="labels" :data="data" />
 			</div>
 		</div>
