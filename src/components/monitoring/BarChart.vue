@@ -3,7 +3,6 @@ import {
 	Chart as ChartJS,
 	Title,
 	Tooltip,
-	Legend,
 	BarElement,
 	CategoryScale,
 	LinearScale
@@ -14,13 +13,12 @@ import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{ labels: string[]; data: number[] }>()
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip)
 
 const { t } = useI18n()
 
 const modifiedData = computed(() =>
-	// props.data.map(value => (value === 0 ? 0.1 : value))
-	[0.1, 4, 6, 0.1]
+	props.data.map(value => (value === 0 ? 0.1 : value))
 )
 
 const hoveredIndex = ref<number | null>(null)
@@ -47,7 +45,7 @@ const chartData = computed(() => ({
 	datasets: [
 		{
 			barPercentage: 0.7,
-			label: t('Number of operations'),
+			// label: t('Number of operations'),
 			data: modifiedData.value,
 			backgroundColor:
 				hoveredIndex.value !== null
@@ -71,6 +69,7 @@ const options = {
 		}
 	},
 	plugins: {
+		legend: { display: false },
 		tooltip: {
 			callbacks: {
 				label: (tooltipItem: any) => {

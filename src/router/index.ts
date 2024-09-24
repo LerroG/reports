@@ -81,6 +81,10 @@ router.beforeEach((to, _, next) => {
 	}
 })
 
+router.afterEach(() => {
+	window.scrollTo(0, 0)
+})
+
 const setTitle = (route: RouteLocationNormalized) => {
 	const titleKey = route.meta.titleKey as string
 	document.title = i18n.global.t(titleKey)
