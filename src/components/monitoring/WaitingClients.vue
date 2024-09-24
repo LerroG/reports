@@ -76,7 +76,10 @@ const paginatedData = computed(() => {
 						</TableRow>
 					</template>
 					<TableRow v-else>
-						<TableCell colspan="7" class="text-center text-lg">
+						<TableCell colspan="7" class="text-center text-lg max-sm:hidden">
+							{{ $t('No clients waiting') }}
+						</TableCell>
+						<TableCell colspan="4" class="text-center text-lg sm:hidden">
 							{{ $t('No clients waiting') }}
 						</TableCell>
 					</TableRow>

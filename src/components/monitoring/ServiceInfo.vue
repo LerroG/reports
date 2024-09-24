@@ -48,7 +48,7 @@ const data = computed(() => props.serviceInfo.map(data => data.taskCount))
 </script>
 
 <template>
-	<div class="w-full flex max-md:flex-col gap-4 2xl:flex">
+	<div class="w-full flex max-lg:flex-col gap-4 2xl:flex">
 		<div
 			class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-6 pt-4 pb-6 2xl:mb-10 mb-6 w-full 2xl:w-1/2"
 		>
