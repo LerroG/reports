@@ -74,12 +74,12 @@ const options = {
 						: `${t('Number of tickets')}: ${value}`
 				}
 			}
+		},
+		interaction: {
+			mode: 'nearest',
+			intersect: true
 		}
 	},
-	// interaction: {
-	// 	mode: 'nearest',
-	// 	intersect: true
-	// },
 	onHover: (event: any) => {
 		const chart = event.chart // Получаем график
 		const elements = chart.getElementsAtEventForMode(

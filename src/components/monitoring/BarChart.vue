@@ -9,17 +9,23 @@ import {
 } from 'chart.js'
 import { Bar } from 'vue-chartjs'
 import { computed, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
 
-const props = defineProps<{ labels: string[]; data: number[] }>()
+const props = defineProps<{ labels: string[]; data: number[]; label: string }>()
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip)
-
-const { t } = useI18n()
 
 const modifiedData = computed(() =>
 	props.data.map(value => (value === 0 ? 0.1 : value))
 )
+
+const modifiedLabels = computed(() => {
+	const data = props.labels
+	while (data.length < 8) {
+		data.push('')
+	}
+
+	return data
+})
 
 const hoveredIndex = ref<number | null>(null)
 
@@ -41,11 +47,10 @@ const colors = [
 ]
 
 const chartData = computed(() => ({
-	labels: props.labels,
+	labels: modifiedLabels.value,
 	datasets: [
 		{
 			barPercentage: 0.7,
-			// label: t('Number of operations'),
 			data: modifiedData.value,
 			backgroundColor:
 				hoveredIndex.value !== null
@@ -76,8 +81,8 @@ const options = {
 					const index = tooltipItem.dataIndex
 					const value = modifiedData.value[index]
 					return value === 0.1
-						? `${t('Number of operations')}: 0`
-						: `${t('Number of operations')}: ${value}`
+						? `${props.label}: 0`
+						: `${props.label}: ${value}`
 				}
 			}
 		}

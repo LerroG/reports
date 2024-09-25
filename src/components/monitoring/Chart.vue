@@ -45,10 +45,8 @@ const data = computed(() => props.serviceInfoGraph.map(data => data.taskCount))
 </script>
 
 <template>
-	<div class="w-full flex max-lg:flex-col gap-4 2xl:flex">
-		<div
-			class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-6 pt-4 pb-6 2xl:mb-10 mb-6 w-full 2xl:w-1/2"
-		>
+	<div class="w-full flex flex-col xl:flex-row xl:gap-4">
+		<div class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-6 pt-4 pb-6 2xl:mb-10 mb-6 w-full xl:w-1/2">
 			<h2 class="font-bold text-center text-xl mb-6">
 				{{ $t('Tickets issued by service') }}
 			</h2>
@@ -85,7 +83,7 @@ const data = computed(() => props.serviceInfoGraph.map(data => data.taskCount))
 			</div>
 		</div>
 		<div
-			class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-6 pt-4 pb-6 mb-10 w-full 2xl:w-1/2"
+			class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-6 pt-4 pb-6 mb-10 w-full xl:w-1/2"
 		>
 			<h2 class="font-bold text-center text-xl mb-6">
 				{{ $t('Tickets issued by service') }}

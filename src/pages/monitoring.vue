@@ -116,14 +116,13 @@ watch(selectedBranches, async () => {
 			<Chart :service-info-graph="monitoringInfo?.serviceInfoGraph || []" />
 			<!-- Chart -->
 
-			<!-- DeskInfo -->
-
-			<DeskInfoTable :deskInfo="monitoringInfo?.deskInfo || []" />
-			<!-- DeskInfo -->
-
 			<!-- WaitingClients -->
 			<WaitingClients :waitingClients="monitoringInfo?.waitingClients || []" />
 			<!-- WaitingClients -->
+
+			<!-- DeskInfo -->
+			<DeskInfoTable :deskInfo="monitoringInfo?.deskInfo || []" />
+			<!-- DeskInfo -->
 
 			<!-- ServiceWaitTimeInfo -->
 			<ServiceWaitTimeInfo

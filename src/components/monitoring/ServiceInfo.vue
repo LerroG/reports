@@ -48,9 +48,9 @@ const data = computed(() => props.serviceInfo.map(data => data.taskCount))
 </script>
 
 <template>
-	<div class="w-full flex max-lg:flex-col gap-4 2xl:flex">
+	<div class="w-full flex flex-col xl:flex-row xl:gap-4">
 		<div
-			class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-6 pt-4 pb-6 2xl:mb-10 mb-6 w-full 2xl:w-1/2"
+			class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-6 pt-4 pb-6 2xl:mb-10 mb-6 w-full xl:w-1/2"
 		>
 			<h2 class="font-bold text-center text-xl mb-6">
 				{{ $t('Information on services') }}
@@ -85,13 +85,17 @@ const data = computed(() => props.serviceInfo.map(data => data.taskCount))
 			</div>
 		</div>
 		<div
-			class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-6 pt-4 pb-6 mb-10 w-full 2xl:w-1/2"
+			class="flex flex-col rounded-lg justify-center shadow-md items-center bg-white px-6 pt-4 pb-6 mb-10 w-full xl:w-1/2"
 		>
 			<h2 class="font-bold text-center text-xl mb-6">
 				{{ $t('Information on services') }}
 			</h2>
 			<div class="w-full h-full min-h-80">
-				<BarChart :labels="labels" :data="data" />
+				<BarChart
+					:labels="labels"
+					:data="data"
+					:label="t('Number of operations')"
+				/>
 			</div>
 		</div>
 	</div>
